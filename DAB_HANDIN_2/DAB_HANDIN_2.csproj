@@ -5,4 +5,8 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Covid19_Tracking\Covid19_Tracking.csproj" />
+  </ItemGroup>
+
 </Project>
