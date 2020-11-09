@@ -12,26 +12,24 @@ namespace DAB_HANDIN_2
 
         public void OpenStatMenu()
         {
-            //Create statistic view, where you can get Covid19 case based on Sex, Age groups(0 - 10, 11 - 20, …).
-
+         
             bool finish = false;
-          
+            double smittede = 0;
+            bool kvinder = false;
+            bool mænd = false;
+            bool et = false;
+            bool elleve = false;
+            bool enogtyve = false;
+            bool enogtredive = false;
+            bool enogfyrre = false;
+            bool enoghalvtreds = false;
+            bool enogtres = false;
+            bool enoghalvfjers = false;
+            bool enogfirs = false;
+
             do
             {
                 Console.Clear();
-                bool kvinder = false;
-                bool mænd = false;
-                bool et = false;
-                bool elleve = false;
-                bool enogtyve = false;
-                bool enogtredive = false;
-                bool enogfyrre = false;
-                bool enoghalvtreds = false;
-                bool enogtres = false;
-                bool enoghalvfjers = false;
-                bool enogfirs = false;
-                float smittede = 0;
-
                 string input;
                 Console.WriteLine("Mulige tilvalg: \n Kvinder    [{0}]\n Mænd       [{1}] \n År 0-10    [{2}] \n År 11-20   [{3}] \n År 21-30   [{4}] " +
                                   "\n År 31-40   [{5}] \n År 41-50   [{6}] \n År 51-60   [{7}] \n År 61-70   [{8}] \n År 71-80   [{9}] \n År 81+     [{10}]"
@@ -60,48 +58,92 @@ namespace DAB_HANDIN_2
                         finish = true; // exit
                         break;
 
-                    case 'A':
-                        if (!et)
-                        {
-                            et = true;
-                        }
+                    case 'K':
+                        kvinder = !kvinder;
+                        if (kvinder)
+                            smittede += 5;
                         else
-                        {
-                            et = false;
-                        }
+                            smittede -= 5;
+                        break;
 
+                    case 'M':
+                        mænd = !mænd;
+                        if (mænd)
+                            smittede += 9;
+                        else
+                            smittede -= 9;
+                        break;
+                        
+                    case 'A':
+                        et = !et;  //inverts bool
+                        if (et)
+                            smittede += 9;
+                        else
+                            smittede -= 9;
                         break;
 
                     case 'B':
-                        
+                        elleve = !elleve;
+                        if (elleve)
+                            smittede += 9;
+                        else
+                            smittede -= 9;
                         break;
 
                     case 'C':
-                        
+                        enogtyve = !enogtyve;
+                        if (enogtyve)
+                            smittede += 9;
+                        else
+                            smittede -= 9;
                         break;
 
                     case 'D':
-
+                        enogtredive = !enogtredive;
+                        if (enogtredive)
+                            smittede += 9;
+                        else
+                            smittede -= 9;
                         break;
 
                     case 'E':
-
+                        enogfyrre = !enogfyrre;
+                        if (enogfyrre)
+                            smittede += 9;
+                        else
+                            smittede -= 9;
                         break;
 
                     case 'F':
-
+                        enoghalvtreds = !enoghalvtreds;
+                        if (enoghalvtreds)
+                            smittede += 9;
+                        else
+                            smittede -= 9;
                         break;
 
                     case 'G':
-
+                        enogtres = !enogtres;
+                        if (enogtres)
+                            smittede += 9;
+                        else
+                            smittede -= 9;
                         break;
 
                     case 'H':
-
+                        enoghalvfjers = !enoghalvfjers;
+                        if (enoghalvfjers)
+                            smittede += 9;
+                        else
+                            smittede -= 9;
                         break;
 
                     case 'I':
-
+                        enogfirs = !enogfirs;
+                        if (enogfirs)
+                            smittede += 9;
+                        else
+                            smittede -= 9;
                         break;
 
                     default:

@@ -10,14 +10,15 @@ namespace DAB_HANDIN_2
             StatisticsView statView = new StatisticsView();
 
             bool finish = false;
-            Console.WriteLine("***** Velkommen til Covid19 tracking app ***** \n" +
-                              "\n Følgende muligheder er tilgængelige: \n - Exit \n - Vis antal aktive Covid19 patienter per kommune" +
-                              "\n - Se deataljeret statistik over smittede baseret op aldersgruppe og køn \n - Indtast nyt smittetilfælde" +
-                              "\n ");
 
             do
             {
+                Console.Clear();
                 string input;
+                Console.WriteLine("***** Velkommen til Covid19 tracking app ***** \n" +
+                                  "\n Følgende muligheder er tilgængelige: \n - Exit \n - Vis antal aktive Covid19 patienter per kommune" +
+                                  "\n - Se deataljeret statistik over smittede baseret op aldersgruppe og køn \n - Indtast nyt smittetilfælde" +
+                                  "\n ");
                 Console.WriteLine(" Indtast et af de følgende bogstaver for at åbne en mulighed: \n E = exit " +
                                   "\n A = Aktive pr. kommune \n S = Åben statistik \n N = Nyt tilfælde ");
                 input = Console.ReadLine();
