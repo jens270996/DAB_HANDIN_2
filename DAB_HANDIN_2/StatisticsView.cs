@@ -30,7 +30,7 @@ namespace DAB_HANDIN_2
             do
             {
                 Console.Clear();
-                string input;
+                Console.WriteLine("***** Statestik menu ***** \n");
                 Console.WriteLine("Mulige tilvalg: \n Kvinder    [{0}]\n Mænd       [{1}] \n År 0-10    [{2}] \n År 11-20   [{3}] \n År 21-30   [{4}] " +
                                   "\n År 31-40   [{5}] \n År 41-50   [{6}] \n År 51-60   [{7}] \n År 61-70   [{8}] \n År 71-80   [{9}] \n År 81+     [{10}]"
                                   , kvinder, mænd, et, elleve, enogtyve, enogtredive, enogfyrre, enoghalvtreds, enogtres, enoghalvfjers, enogfirs);
@@ -49,7 +49,7 @@ namespace DAB_HANDIN_2
                                   "\n I = 81+" +
                                   "\n T = Tilbage til hovedmenu");
                 
-                input = Console.ReadLine();
+                string input = Console.ReadLine();
                 if (string.IsNullOrEmpty(input)) continue;
 
                 switch (input[0])

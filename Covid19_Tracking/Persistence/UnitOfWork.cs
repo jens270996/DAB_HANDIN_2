@@ -1,4 +1,5 @@
-﻿using Covid19_Tracking.Repositories;
+﻿using Covid19_Tracking.Persistence.Repositories;
+using Covid19_Tracking.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -12,10 +13,12 @@ namespace Covid19_Tracking.Persistence
         public UnitOfWork(CovidContext context)
         {
             _context = context;
+            Citizens = new CitizenRepository(_context);
             //Courses = new CourseRepository(_context);
             //Authors = new AuthorRepository(_context);
         }
 
+        public ICitizenRepository Citizens { get; private set; }
         //public ICourseRepository Courses { get; private set; }
         //public IAuthorRepository Authors { get; private set; }
 
