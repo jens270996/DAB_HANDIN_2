@@ -12,7 +12,7 @@ namespace DAB_HANDIN_2
 
         public void OpenStatMenu()
         {
-         
+         // tilføj either option
             bool finish = false;
             double smittede = 0;
             bool kvinder = false;

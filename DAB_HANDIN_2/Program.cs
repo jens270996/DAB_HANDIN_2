@@ -62,7 +62,7 @@ namespace DAB_HANDIN_2
                         {
                             var cit = unitOfWork.Citizens.Get(int.Parse(id));
                             var possibleInfected = unitOfWork.Citizens.GetPossibleInfectedCitizens(cit);
-                            // Console.WriteLine("Total antal smittede: {0}", totalInfected);
+                             Console.WriteLine("Total antal smittede: {0}", possibleInfected);
                             // udskriv per municipality
                         }
                         break;
