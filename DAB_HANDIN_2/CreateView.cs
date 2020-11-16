@@ -1,4 +1,7 @@
 ﻿using System;
+using Covid19_Tracking;
+using Covid19_Tracking.Persistence;
+using Covid19_Tracking.Persistence.Repositories;
 
 namespace DAB_HANDIN_2
 {
@@ -12,7 +15,6 @@ namespace DAB_HANDIN_2
         public void OpenCreateMenu()
         {
             bool finish = false;
-
             do
             {
                 Console.Clear();
@@ -39,6 +41,11 @@ namespace DAB_HANDIN_2
 
                     case 'B':
                         // tilføj ny borger
+                        
+                        using (var unitOfWork = new UnitOfWork(new CovidContext()))
+                        {
+                            
+                        }
 
                         break;
 

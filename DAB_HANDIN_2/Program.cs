@@ -21,7 +21,6 @@ namespace DAB_HANDIN_2
             do
             {
                 Console.Clear();
-                string input;
                 Console.WriteLine("***** Velkommen til Covid19 tracking app ***** \n" +
                                   "\n Følgende muligheder er tilgængelige: \n - Exit \n - Vis antal aktive Covid19 patienter per kommune" +
                                   "\n - Se deataljeret statistik over smittede baseret på aldersgruppe og køn \n - Udregn mulige smittede ved nyeste smittetilfælde" +
@@ -29,7 +28,7 @@ namespace DAB_HANDIN_2
                                   "\n ");
                 Console.WriteLine(" Indtast et af de følgende bogstaver for at åbne en mulighed: \n E = exit " +
                                   "\n A = Aktive pr. kommune \n S = Åben statistik \n U = Mulige nye smittede \n N = Tilføj data ");
-                input = Console.ReadLine();
+                string input = Console.ReadLine();
                 if (string.IsNullOrEmpty(input)) continue;
 
                 switch (input[0])
@@ -41,7 +40,6 @@ namespace DAB_HANDIN_2
                     case 'A':
                         //Calculate the number of active Covid19 cases - a person is infected 14 days after a positive
                         //test. Results should be shown per Municipality.
-                        
                         using (var unitOfWork = new UnitOfWork(new CovidContext()))
                         {
                             var totalInfected = unitOfWork.Citizens.GetInfectedCitizens();
@@ -55,8 +53,6 @@ namespace DAB_HANDIN_2
                                 Console.WriteLine("\n" + pairs[i].municipality+ "          " + pairs[i].infected);
                             }
                         }
-                       
-
                         break;
 
                     case 'S':
@@ -67,17 +63,17 @@ namespace DAB_HANDIN_2
                     case 'U':
                         //Given a new infected citizen, “calculate” which other citizen may be infected .
                         Console.WriteLine("Indtast id på smittet person.");
-                        string id=Console.ReadLine();
-
+                        string id = Console.ReadLine();
+                        if (string.IsNullOrEmpty(id)) continue;
                         using (var unitOfWork = new UnitOfWork(new CovidContext()))
                         {
                             var cit = unitOfWork.Citizens.Get(int.Parse(id));
                             var possibleInfected = unitOfWork.Citizens.GetPossibleInfectedCitizens(cit);
                             List<Citizen> possibleInfectedList = possibleInfected.ToList();
-                            Console.WriteLine("\n Muligt smittede borgere: {0}", possibleInfectedList);
+                            Console.WriteLine("\n Muligt smittede borgere: ");
                             for (int i = 0; i < possibleInfectedList.Count(); i++)
                             { 
-                                Console.WriteLine("\n" + possibleInfectedList[i]);
+                                Console.WriteLine("\n " + possibleInfectedList[i]);
                             }
                         }
                         break;
