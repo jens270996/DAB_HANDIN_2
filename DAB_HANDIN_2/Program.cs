@@ -40,7 +40,7 @@ namespace DAB_HANDIN_2
                         
                         using (var unitOfWork = new UnitOfWork(new CovidContext()))
                         {
-                           // var totalInfected = unitOfWork.Citizens.GetInfectedCitizens();
+                            var totalInfected = unitOfWork.Citizens.GetInfectedCitizens();
                            // Console.WriteLine("Total antal smittede: {0}", totalInfected);
                             // udskriv per municipality
                         }
@@ -55,6 +55,16 @@ namespace DAB_HANDIN_2
 
                     case 'U':
                         //Given a new infected citizen, “calculate” which other citizen may be infected .
+                        Console.WriteLine("Indtast id paa smittet person.");
+                        string id=Console.ReadLine();
+
+                        using (var unitOfWork = new UnitOfWork(new CovidContext()))
+                        {
+                            var cit = unitOfWork.Citizens.Get(int.Parse(id));
+                            var possibleInfected = unitOfWork.Citizens.GetPossibleInfectedCitizens(cit);
+                            // Console.WriteLine("Total antal smittede: {0}", totalInfected);
+                            // udskriv per municipality
+                        }
                         break;
 
                     case 'N':
