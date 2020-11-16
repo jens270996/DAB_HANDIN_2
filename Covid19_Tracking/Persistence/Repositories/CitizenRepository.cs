@@ -19,11 +19,14 @@ namespace Covid19_Tracking.Persistence.Repositories
         }
         public IEnumerable<Citizen> GetPossibleInfectedCitizens(Citizen infected)
         {
+
+            var spreadingDays = infected.TestDates.Where(t => t.Result == true)
             var infectedLocations = infected.CitizenLocations;
-           
+            
+           infectedLocations.Where(c=>c.Date-
 
             CovidContext.Citizens
-                .Include(c=>c.CitizenLocations
+                .Include(c=>c)
                 .Where(c=>c.Date))
         }
         public IEnumerable<Citizen> GetInfectedCitizensInNation(Nation nation)
