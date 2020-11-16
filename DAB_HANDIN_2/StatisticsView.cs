@@ -12,11 +12,11 @@ namespace DAB_HANDIN_2
 
         public void OpenStatMenu()
         {
-         
             bool finish = false;
             double smittede = 0;
             bool kvinder = false;
             bool mænd = false;
+            bool andre = false;
             bool et = false;
             bool elleve = false;
             bool enogtyve = false;
@@ -31,13 +31,14 @@ namespace DAB_HANDIN_2
             {
                 Console.Clear();
                 Console.WriteLine("***** Statestik menu ***** \n");
-                Console.WriteLine("Mulige tilvalg: \n Kvinder    [{0}]\n Mænd       [{1}] \n År 0-10    [{2}] \n År 11-20   [{3}] \n År 21-30   [{4}] " +
-                                  "\n År 31-40   [{5}] \n År 41-50   [{6}] \n År 51-60   [{7}] \n År 61-70   [{8}] \n År 71-80   [{9}] \n År 81+     [{10}]"
-                                  , kvinder, mænd, et, elleve, enogtyve, enogtredive, enogfyrre, enoghalvtreds, enogtres, enoghalvfjers, enogfirs);
+                Console.WriteLine("Mulige tilvalg: \n Kvinder    [{0}]\n Mænd       [{1}]  \n Andre køn  [{2}] \n År 0-10    [{3}] \n År 11-20   [{4}] \n År 21-30   [{5}] " +
+                                  "\n År 31-40   [{6}] \n År 41-50   [{7}] \n År 51-60   [{8}] \n År 61-70   [{9}] \n År 71-80   [{10}] \n År 81+     [{11}]"
+                                  , kvinder, mænd, andre, et, elleve, enogtyve, enogtredive, enogfyrre, enoghalvtreds, enogtres, enoghalvfjers, enogfirs);
                 Console.WriteLine("\n Antal smittede: {0}", smittede);
                 Console.WriteLine("\n Brug de følgende muligheder for at slå en mulighed til eller fra:" +
                                   "\n K = Kvinder " +
                                   "\n M = Mænd" +
+                                  "\n O = Andre køn" +
                                   "\n A = 0-10" +
                                   "\n B = 11-20" +
                                   "\n C = 21-30" +
@@ -59,7 +60,7 @@ namespace DAB_HANDIN_2
                         break;
 
                     case 'K':
-                        kvinder = !kvinder;
+                        kvinder = !kvinder;  //inverts bool
                         if (kvinder)
                             smittede += 5;
                         else
@@ -73,9 +74,17 @@ namespace DAB_HANDIN_2
                         else
                             smittede -= 9;
                         break;
-                        
+
+                    case 'O':
+                        andre = !andre;
+                        if (andre)
+                            smittede += 9;
+                        else
+                            smittede -= 9;
+                        break;
+
                     case 'A':
-                        et = !et;  //inverts bool
+                        et = !et;  
                         if (et)
                             smittede += 9;
                         else

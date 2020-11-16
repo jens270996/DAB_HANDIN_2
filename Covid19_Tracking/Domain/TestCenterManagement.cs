@@ -8,6 +8,7 @@ namespace Covid19_Tracking.Domain
     {
         public int PhoneNumber { get; set; }
         public string Email { get; set; }
+        public int TestMangementID { get; set; }
         public virtual TestCenter TestCenter { get; set; }
         
     }

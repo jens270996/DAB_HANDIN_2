@@ -38,11 +38,8 @@ namespace Covid19_Tracking
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Citizen>().HasKey(a => a.SSN);
-            modelBuilder.Entity<Citizen>()
-                .HasMany<TestDate>(b => b.TestDates)
-                .WithOne(r => r.Citizen)
-                .HasForeignKey(r => r.TestID);
+            
+
 
             //TestDate
             modelBuilder.Entity<TestDate>()
@@ -52,7 +49,28 @@ namespace Covid19_Tracking
             modelBuilder.Entity<TestDate>()
                 .HasOne(ba => ba.Citizen)
                 .WithMany(b => b.TestDates)
-                .HasForeignKey(ba => ba.SSN);
+                .HasForeignKey(ba => ba.Citizen_ID);
+
+            modelBuilder.Entity<Nation>()
+                .HasKey(a => a.Name);
+
+            modelBuilder.Entity<Municipality>()
+                .HasOne(ba => ba.Nation)
+                .WithMany(b => b.Municipalities)
+                .HasForeignKey(ba => ba.Nation_Name);
+
+            modelBuilder.Entity<Location>().HasKey(b => b.Addresse);
+
+            modelBuilder.Entity<CitizenLocation>()
+                .HasOne(ba => ba.Location)
+                .WithMany(b => b.CitizenLocations)
+                .HasForeignKey(ba => ba.Adresse);
+            modelBuilder.Entity<CitizenLocation>()
+                .HasOne(ba => ba.Citizen)
+                .WithMany(b => b.CitizenLocations)
+                .HasForeignKey(ba => ba.Citizen_ID);
+
+
 
 
             Seed(modelBuilder);
@@ -67,7 +85,7 @@ namespace Covid19_Tracking
         private void Seed(ModelBuilder modelBuilder)
         {
             #region Add Tags
-           
+            modelBuilder.Entity<Citizen>().HasData()
         
 
             

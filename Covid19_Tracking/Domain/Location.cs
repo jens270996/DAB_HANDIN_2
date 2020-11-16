@@ -14,6 +14,9 @@ namespace Covid19_Tracking.Domain
 
         public string Addresse { get; set; }
 
+        
+
+
 
 
         public virtual Municipality Municipality { get; set; }
