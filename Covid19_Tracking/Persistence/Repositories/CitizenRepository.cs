@@ -20,14 +20,37 @@ namespace Covid19_Tracking.Persistence.Repositories
         public IEnumerable<Citizen> GetPossibleInfectedCitizens(Citizen infected)
         {
 
-            var spreadingDays = infected.TestDates.Where(t => t.Result == true)
-            var infectedLocations = infected.CitizenLocations;
-            
-           infectedLocations.Where(c=>c.Date-
+            List < DateTime >  infectedDates = new List<DateTime>();
 
-            CovidContext.Citizens
-                .Include(c=>c)
-                .Where(c=>c.Date))
+            foreach(var date in infected.TestDates.Where(t => t.Result == true).Select(t => t.Date))
+            {
+                var d= date.Date;
+                for (int i = 0; i < 4; i++)
+                {
+                    infectedDates.Add(d.AddDays(-i));
+                }
+            }
+
+
+            var infectedLocations = infected.CitizenLocations.Where(c => infectedDates.Contains(c.Date.Date));
+
+            List<Citizen> InfectedCitizens = new List<Citizen>();
+             foreach(var c in CovidContext.Citizens.Include(p=>p))
+                {
+
+                var joinedlocations=c.CitizenLocations.Join(infectedLocations, i => i.Location, i => i.Location, (infector, infected) =>
+                         new { infectorDate = infector.Date, inefectedDate = infected.Date });
+
+                foreach(var loc in joinedlocations)
+                {
+                    if (loc.inefectedDate.Date == loc.infectorDate)
+                        InfectedCitizens.Add(c);
+                }
+                
+
+            }
+            return InfectedCitizens;
+
         }
         public IEnumerable<Citizen> GetInfectedCitizensInNation(Nation nation)
         {
