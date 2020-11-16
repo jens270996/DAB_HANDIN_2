@@ -20,8 +20,8 @@ namespace DAB_HANDIN_2
                 string input;
                 Console.WriteLine("***** Velkommen til Covid19 tracking app ***** \n" +
                                   "\n Følgende muligheder er tilgængelige: \n - Exit \n - Vis antal aktive Covid19 patienter per kommune" +
-                                  "\n - Se deataljeret statistik over smittede baseret op aldersgruppe og køn \n - Udregn mulige smittede ved nyeste smittetilfælde" +
-                                  "\n - Tilføj nyt smittetilfælde, testcenter, testsag ellerny lokation" +
+                                  "\n - Se deataljeret statistik over smittede baseret på aldersgruppe og køn \n - Udregn mulige smittede ved nyeste smittetilfælde" +
+                                  "\n - Tilføj nyt smittetilfælde, testcenter, testsag eller ny lokation" +
                                   "\n ");
                 Console.WriteLine(" Indtast et af de følgende bogstaver for at åbne en mulighed: \n E = exit " +
                                   "\n A = Aktive pr. kommune \n S = Åben statistik \n U = Mulige nye smittede \n N = Tilføj data ");
@@ -40,8 +40,8 @@ namespace DAB_HANDIN_2
                         
                         using (var unitOfWork = new UnitOfWork(new CovidContext()))
                         {
-                           // var totalInfected = unitOfWork.Citizens.GetInfectedCitizens();
-                           // Console.WriteLine("Total antal smittede: {0}", totalInfected);
+                            var totalInfected = unitOfWork.Citizens.GetInfectedCitizens();
+                            Console.WriteLine("Total antal smittede: {0}", totalInfected);
                             // udskriv per municipality
                         }
                        

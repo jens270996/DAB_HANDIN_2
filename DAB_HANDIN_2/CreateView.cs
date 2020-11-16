@@ -19,7 +19,7 @@ namespace DAB_HANDIN_2
                 Console.WriteLine("***** Tilføj data menu ***** \n");
                 Console.WriteLine("Vælg en af følgende muligheder: \n - Tilføj en ny borger \n - Tilføj et nyt testcenter med ledelse" +
                                   "\n - Tilføj nyt testresultat \n - Tilføj ny lokation ");
-                Console.WriteLine(" Indtast et af de følgende bogstaver for at åbne en mulighed: \n T = Tilbage " +
+                Console.WriteLine("\n Indtast et af de følgende bogstaver for at åbne en mulighed: \n T = Tilbage " +
                                   "\n B = Tilføj borger \n C = Tilføj testcenter \n R = Tilføj testresultat \n L = Tilføj lokation ");
 
 
