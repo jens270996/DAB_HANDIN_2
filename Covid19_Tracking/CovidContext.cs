@@ -70,6 +70,12 @@ namespace Covid19_Tracking
                 .WithMany(b => b.CitizenLocations)
                 .HasForeignKey(ba => ba.Citizen_ID);
 
+            modelBuilder.Entity<CitizenLocation>().HasKey(c => new { c.Adresse, c.Citizen_ID, c.Date.Date });
+
+            modelBuilder.Entity<TestCenter>()
+                .HasOne(b => b.TestCenterManagement)
+                .WithOne(f => f.TestCenter)
+                .HasForeignKey<TestCenterManagement>(b => b.TestCenterID);
 
 
 

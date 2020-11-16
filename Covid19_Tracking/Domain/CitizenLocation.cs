@@ -10,6 +10,8 @@ namespace Covid19_Tracking.Domain
         public string Adresse { get; set; }
         public DateTime Date { get; set; }
 
+        
+        
         public virtual Location Location { get; set; }
         public virtual Citizen Citizen { get; set; }
 
