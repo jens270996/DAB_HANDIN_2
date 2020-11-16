@@ -14,7 +14,11 @@ namespace Covid19_Tracking.Domain
 
         public string Addresse { get; set; }
 
-        
+        public Location(string Addresse1)
+        {
+            Addresse = Addresse1;
+            CitizenLocations = new HashSet<CitizenLocation>();
+        }
 
 
 
