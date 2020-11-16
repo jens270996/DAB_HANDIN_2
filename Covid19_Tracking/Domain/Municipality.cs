@@ -18,6 +18,9 @@ namespace Covid19_Tracking.Domain
             ID = ID1;
             Name = Name1;
             Population = CItz;
+            Citizens = new HashSet<Citizen>();
+            TestCenters = new HashSet<TestCenter>();
+            Locations = new HashSet<Location>();
         }
 
         public string Name { get; set; }
