@@ -14,11 +14,13 @@ namespace Covid19_Tracking.Persistence
         {
             _context = context;
             Citizens = new CitizenRepository(_context);
+            Municipalities = new MunicipalityRepository(_context);
             //Courses = new CourseRepository(_context);
             //Authors = new AuthorRepository(_context);
         }
 
         public ICitizenRepository Citizens { get; private set; }
+        public IMunicipalityRepository Municipalities {get; private set;}
         //public ICourseRepository Courses { get; private set; }
         //public IAuthorRepository Authors { get; private set; }
 
