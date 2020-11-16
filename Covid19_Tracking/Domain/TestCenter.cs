@@ -16,6 +16,7 @@ namespace Covid19_Tracking.Domain
             hours = hours1;
             TestDates = new HashSet<TestDate>();
         }
+
         public int hours { get; set; }
         public virtual TestCenterManagement TestCenterManagement { get; set; }
         public int TestID { get; set; }
