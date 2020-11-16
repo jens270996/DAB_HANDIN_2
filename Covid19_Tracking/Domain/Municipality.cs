@@ -12,9 +12,17 @@ namespace Covid19_Tracking.Domain
             TestCenters = new HashSet<TestCenter>();
             Locations = new HashSet<Location>();
         }
+
         public string Name { get; set; }
         public int Population { get; set; }
+        
+        public int ID { get; set; }
+
         public virtual Nation Nation { get; set; }
+
+
+
+        public int Nation_Name { get; set; }
 
         public virtual ICollection<Citizen> Citizens { get; set;}
         public virtual ICollection<TestCenter> TestCenters { get; set; }
