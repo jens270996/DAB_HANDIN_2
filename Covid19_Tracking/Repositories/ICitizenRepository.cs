@@ -8,5 +8,6 @@ namespace Covid19_Tracking.Repositories
     public interface ICitizenRepository:IRepository<Citizen>
     {
         public IEnumerable<Citizen> GetPossibleInfectedCitizens(Citizen infected);
+        public IEnumerable<Citizen> GetInfectedCitizens();
     }
 }
