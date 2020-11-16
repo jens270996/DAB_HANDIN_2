@@ -38,7 +38,22 @@ namespace Covid19_Tracking
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            
+            modelBuilder.Entity<Citizen>().HasKey(a => a.SSN);
+            modelBuilder.Entity<Citizen>()
+                .HasMany<TestDate>(b => b.TestDates)
+                .WithOne(r => r.Citizen)
+                .HasForeignKey(r => r.TestID);
+
+            //TestDate
+            modelBuilder.Entity<TestDate>()
+                .HasOne(ba => ba.TestCenter)
+                .WithMany(b => b.TestDates)
+                .HasForeignKey(ba => ba.TestID);
+            modelBuilder.Entity<TestDate>()
+                .HasOne(ba => ba.Citizen)
+                .WithMany(b => b.TestDates)
+                .HasForeignKey(ba => ba.SSN);
+
 
             Seed(modelBuilder);
 
