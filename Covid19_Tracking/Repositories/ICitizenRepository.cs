@@ -9,5 +9,6 @@ namespace Covid19_Tracking.Repositories
     {
         public IEnumerable<Citizen> GetPossibleInfectedCitizens(Citizen infected);
         public IEnumerable<Citizen> GetInfectedCitizens();
+        public long InfectedInterval(int minAge, int maxAge, string gender);
     }
 }
