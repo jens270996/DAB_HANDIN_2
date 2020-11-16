@@ -67,6 +67,11 @@ namespace Covid19_Tracking.Persistence.Repositories
 
         }
 
+        public long InfectedInterval(int minAge,int maxAge,string gender)
+        {
+            return GetInfectedCitizens().Where(c => c.Age <= maxAge && c.Age >= minAge && c.Sex == gender).Count();
+        }
+
         public CovidContext CovidContext
         {
             get { return Context as CovidContext; }
