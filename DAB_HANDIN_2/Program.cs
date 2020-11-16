@@ -49,10 +49,10 @@ namespace DAB_HANDIN_2
                             // udskriv per municipality
                             var infectedPerMunicipality = unitOfWork.Municipalities.GetInfectedByMunicipality();
                             List<MunicipalityPair> pairs = infectedPerMunicipality.ToList();
-                            Console.WriteLine("Kommune:             Antal smittede:");
+                            Console.WriteLine("\n Kommune:             Antal smittede:");
                             for (int i = 0; i < pairs.Count; i++)
                             {
-                                Console.WriteLine(pairs[i].municipality+ "          " + pairs[i].infected);
+                                Console.WriteLine("\n" + pairs[i].municipality+ "          " + pairs[i].infected);
                             }
                         }
                        
