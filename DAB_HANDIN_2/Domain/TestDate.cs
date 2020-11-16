@@ -11,7 +11,7 @@ namespace Covid19_Tracking.Domain
         public DateTime Date { set; get; }
         public string Status { set; get; }
         public int Citizen_ID { set; get; }
-        public int TestID { get; set; }
+        public int TestCenterID { get; set; }
 
         public virtual TestCenter TestCenter { get; set; }
         public virtual Citizen Citizen { get; set; }

@@ -31,7 +31,7 @@ namespace Covid19_Tracking
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=PlutoContext1;Trusted_Connection=True;ConnectRetryCount=0");
+                optionsBuilder.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=CovidDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
             }
             optionsBuilder.EnableSensitiveDataLogging(true);
         }
@@ -45,7 +45,7 @@ namespace Covid19_Tracking
             modelBuilder.Entity<TestDate>()
                 .HasOne(ba => ba.TestCenter)
                 .WithMany(b => b.TestDates)
-                .HasForeignKey(ba => ba.TestID);
+                .HasForeignKey(ba => ba.TestCenterID);
             modelBuilder.Entity<TestDate>()
                 .HasOne(ba => ba.Citizen)
                 .WithMany(b => b.TestDates)
@@ -61,6 +61,9 @@ namespace Covid19_Tracking
 
             modelBuilder.Entity<Location>().HasKey(b => b.Addresse);
 
+
+
+            //modelBuilder.Entity<CitizenLocation>().HasKey(c => new { c.Adresse, c.Citizen_ID, c.Date.Date });
             modelBuilder.Entity<CitizenLocation>()
                 .HasOne(ba => ba.Location)
                 .WithMany(b => b.CitizenLocations)
@@ -70,12 +73,11 @@ namespace Covid19_Tracking
                 .WithMany(b => b.CitizenLocations)
                 .HasForeignKey(ba => ba.Citizen_ID);
 
-            modelBuilder.Entity<CitizenLocation>().HasKey(c => new { c.Adresse, c.Citizen_ID, c.Date.Date });
 
-            modelBuilder.Entity<TestCenter>()
-                .HasOne(b => b.TestCenterManagement)
-                .WithOne(f => f.TestCenter)
-                .HasForeignKey<TestCenterManagement>(b => b.TestCenterID);
+
+            //modelBuilder.Entity<TestCenter>().HasOne(t => t.TestCenterManagement)
+            //    .WithOne(t => t.TestCenter)
+            //    .HasForeignKey<TestCenterManagement>(t => t.TestCenterRef);
 
 
 
@@ -310,16 +312,16 @@ namespace Covid19_Tracking
                 new Nation("Danmark")
                 );
 
-            modelBuilder.Entity<TestCenter>()
-                .HasData(
-                new TestCenter(17),
-                new TestCenter(12)
-                );
+            //modelBuilder.Entity<TestCenter>()
+            //    .HasData(
+            //    new TestCenter(17, 1),
+            //    new TestCenter(12, 2)
+            //    );
 
-            modelBuilder.Entity<TestCenterManagement>()
-                .HasData(
-                new TestCenterManagement(1000,"TestAArhus@mail.com",88888888)
-                );
+            //modelBuilder.Entity<TestCenterManagement>()
+            //    .HasData(
+            //    new TestCenterManagement(1000, "TestAArhus@mail.com", 88888888) { TestCenterID = 1 }
+            //    );
 
             #endregion
         }

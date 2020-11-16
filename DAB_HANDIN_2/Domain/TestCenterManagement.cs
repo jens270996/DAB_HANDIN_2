@@ -7,23 +7,23 @@ namespace Covid19_Tracking.Domain
     public class TestCenterManagement
     {
 
-        public TestCenterManagement()
-        { }
+       
 
-        public TestCenterManagement(int ID, string email1, int phone)
+        public TestCenterManagement(int id, string email1, int phone)
         {
+            TestCenterId = id;
             PhoneNumber = phone;
             Email = email1;
-            TestMangementID = ID;
+           
 
         }
 
-       
 
+        public int TestCenterManagementId { get; set; }
         public int PhoneNumber { get; set; }
         public string Email { get; set; }
-        public int TestMangementID { get; set; }
+        public int TestCenterId { get; set; }
         public virtual TestCenter TestCenter { get; set; }
-        public int TestCenterID { get; set; }
+        
     }
 }
