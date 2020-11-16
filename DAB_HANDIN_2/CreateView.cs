@@ -17,14 +17,18 @@ namespace DAB_HANDIN_2
             {
                 Console.Clear();
                 Console.WriteLine("***** Tilføj data menu ***** \n");
+                Console.WriteLine("Vælg en af følgende muligheder: \n - Tilføj en ny borger \n - Tilføj et nyt testcenter med ledelse" +
+                                  "\n - Tilføj nyt testresultat \n - Tilføj ny lokation ");
+                Console.WriteLine(" Indtast et af de følgende bogstaver for at åbne en mulighed: \n T = Tilbage " +
+                                  "\n B = Tilføj borger \n C = Tilføj testcenter \n R = Tilføj testresultat \n L = Tilføj lokation ");
 
-            
-            //*Create new Citizen
-            //Create new TestCenter and TestCenterManagement
-            //Create new Tests case
-            //Create new Location
 
-            string input = Console.ReadLine();
+                //*Create new Citizen
+                //Create new TestCenter and TestCenterManagement
+                //Create new Tests case
+                //Create new Location
+
+                string input = Console.ReadLine();
                 if (string.IsNullOrEmpty(input)) continue;
 
                 switch (input[0])
@@ -33,21 +37,21 @@ namespace DAB_HANDIN_2
                         finish = true; // exit
                         break;
 
-                    case 'A':
-                        
+                    case 'B':
+                        // tilføj ny borger
 
                         break;
 
-                    case 'S':
-                        
+                    case 'C':
+                        //tilføj testcenter og testmanagment
                         break;
 
-                    case 'U':
-                        
+                    case 'R':
+                        //tilføj testresultat
                         break;
 
-                    case 'N':
-                        
+                    case 'L':
+                        // tilføj lokation
                         break;
 
                     default:

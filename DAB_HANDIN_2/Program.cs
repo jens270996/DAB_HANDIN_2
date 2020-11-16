@@ -40,7 +40,9 @@ namespace DAB_HANDIN_2
                         
                         using (var unitOfWork = new UnitOfWork(new CovidContext()))
                         {
-                            unitOfWork.Citizens.GetInfectedCitizens();
+                           // var totalInfected = unitOfWork.Citizens.GetInfectedCitizens();
+                           // Console.WriteLine("Total antal smittede: {0}", totalInfected);
+                            // udskriv per municipality
                         }
                        
 
