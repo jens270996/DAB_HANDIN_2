@@ -18,6 +18,7 @@ namespace Covid19_Tracking.Domain
 
         }
 
+        public int TestID { get; set; }
 
         public int PhoneNumber { get; set; }
         public string Email { get; set; }

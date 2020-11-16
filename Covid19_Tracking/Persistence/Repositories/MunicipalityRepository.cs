@@ -3,8 +3,7 @@ using Covid19_Tracking.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Text;
-//sing Queries.Core.Domain;
-//using Queries.Core.Repositories;
+
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 
