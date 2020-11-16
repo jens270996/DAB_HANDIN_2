@@ -13,15 +13,18 @@ namespace Covid19_Tracking.Domain
             TestDates = new HashSet<TestDate>();
         }
 
-        public TestCenter(int hours1)
+        public TestCenter(int hours1, int hours2,string name)
         {
             
-            hours = hours1;
+            OpenHour = hours1;
+            CloseHour = hours2;
             TestDates = new HashSet<TestDate>();
+            CenterName = name;
         }
 
-        
-        public int hours { get; set; }
+        public string CenterName { get; set; }
+        public int OpenHour { get; set; }
+        public int CloseHour { get; set; }
         public virtual TestCenterManagement TestCenterManagement { get; set; }
        
         public virtual Municipality Municipality { get; set; }

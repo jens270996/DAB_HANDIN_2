@@ -7,8 +7,7 @@ namespace Covid19_Tracking.Domain
     public class TestCenterManagement
     {
 
-        public TestCenterManagement()
-        { }
+       
 
         public TestCenterManagement(int id, string email1, int phone)
         {
