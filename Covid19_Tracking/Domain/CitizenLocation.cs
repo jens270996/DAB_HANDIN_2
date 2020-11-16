@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Covid19_Tracking.Domain
 {
-    class CitizenLocation
+    public class CitizenLocation
     {
         public int SSN { get; set; }
         public string Adresse { get; set; }

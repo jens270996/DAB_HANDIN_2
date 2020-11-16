@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Covid19_Tracking.Domain
 {
-    class TestCenter
+    public class TestCenter
     {
         public TestCenter()
         {

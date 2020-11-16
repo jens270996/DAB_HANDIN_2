@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Covid19_Tracking.Domain
 {
-    class TestCenterManagement
+    public class TestCenterManagement
     {
         public int PhoneNumber { get; set; }
         public string Email { get; set; }

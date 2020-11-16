@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Covid19_Tracking.Domain
 {
-    class TestDate
+    public class TestDate
     {
         public bool Result { set; get; }
         public DateTime Date { set; get; }
