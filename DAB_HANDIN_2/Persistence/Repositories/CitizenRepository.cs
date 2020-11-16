@@ -31,13 +31,11 @@ namespace Covid19_Tracking.Persistence.Repositories
                 }
             }
 
-
             var infectedLocations = infected.CitizenLocations.Where(c => infectedDates.Contains(c.Date.Date));
 
             List<Citizen> InfectedCitizens = new List<Citizen>();
              foreach(var c in CovidContext.Citizens.Include(p=>p))
                 {
-
                 var joinedlocations=c.CitizenLocations.Join(infectedLocations, i => i.Location, i => i.Location, (infector, infected) =>
                          new { infectorDate = infector.Date, inefectedDate = infected.Date });
 
@@ -48,7 +46,7 @@ namespace Covid19_Tracking.Persistence.Repositories
                 }
                 
 
-            }
+             }
             return InfectedCitizens;
 
         }

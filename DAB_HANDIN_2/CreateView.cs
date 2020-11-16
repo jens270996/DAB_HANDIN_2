@@ -1,5 +1,9 @@
-﻿using System;
-
+﻿using Covid19_Tracking;
+using Covid19_Tracking.Domain;
+using Covid19_Tracking.Persistence;
+using System;
+using System.Linq;
+using System.Linq.Expressions;
 namespace DAB_HANDIN_2
 {
     public class CreateView
@@ -44,6 +48,16 @@ namespace DAB_HANDIN_2
 
                     case 'C':
                         //tilføj testcenter og testmanagment
+                        using (var unitOfWork = new UnitOfWork(new CovidContext()))
+                        {
+                            var testCenter = new TestCenter(17);
+
+                            unitOfWork.TestCenters.Add(testCenter);
+                            unitOfWork.Complete();
+                            if(unitOfWork.TestCenters.GetAll().Where(t=>t.TestCenterId==1).Any())
+                            unitOfWork.TestCenterManagements.Add(new TestCenterManagement(1,"jens@maiL", 2709));
+                            unitOfWork.Complete();
+                        }
                         break;
 
                     case 'R':

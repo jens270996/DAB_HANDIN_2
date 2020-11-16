@@ -6,6 +6,7 @@ namespace Covid19_Tracking.Domain
 {
     public class CitizenLocation
     {
+        public int CitizenLocationId { get; set; }
         public int Citizen_ID { get; set; }
         public string Adresse { get; set; }
         public DateTime Date { get; set; }

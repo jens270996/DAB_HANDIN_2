@@ -16,7 +16,7 @@ namespace Covid19_Tracking.Domain
             Municipalities = new HashSet<Municipality>();
         }
         public string Name { get; set; }
-
+        
         public virtual ICollection<Municipality>Municipalities { get; set; }
     }
 }

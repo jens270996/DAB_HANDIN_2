@@ -24,7 +24,7 @@ namespace Covid19_Tracking.Persistence.Repositories
         public IEnumerable<MunicipalityPair> GetInfectedByMunicipality()
         {
             List<MunicipalityPair> pairs = new List<MunicipalityPair>();
-            foreach(var m in CovidContext.Municipalities.Include(c=>c))
+            foreach(var m in CovidContext.Municipalities.Include(c=>c.Citizens))
             {
                 var pair=new MunicipalityPair();
                 pair.municipality = m;

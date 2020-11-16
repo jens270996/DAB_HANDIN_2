@@ -15,6 +15,10 @@ namespace Covid19_Tracking.Persistence
             _context = context;
             Citizens = new CitizenRepository(_context);
             Municipalities = new MunicipalityRepository(_context);
+            TestCenters = new TestCenterRepository(_context);
+            TestCenterManagements = new TestCenterManagementRepository(_context);
+            TestDates = new TestDateRepository(_context);
+            Locations = new LocationRepository(_context);
             //Courses = new CourseRepository(_context);
             //Authors = new AuthorRepository(_context);
         }
