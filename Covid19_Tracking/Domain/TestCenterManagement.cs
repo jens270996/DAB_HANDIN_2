@@ -6,6 +6,19 @@ namespace Covid19_Tracking.Domain
 {
     public class TestCenterManagement
     {
+
+        public TestCenterManagement()
+        { }
+
+        public TestCenterManagement(int ID, string email1, int phone)
+        {
+            PhoneNumber = phone;
+            Email = email1;
+            TestMangementID = ID;
+
+        }
+
+
         public int PhoneNumber { get; set; }
         public string Email { get; set; }
         public int TestMangementID { get; set; }
