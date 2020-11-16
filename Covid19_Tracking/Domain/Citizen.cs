@@ -11,6 +11,19 @@ namespace Covid19_Tracking.Domain
             TestDates = new HashSet<TestDate>();
             CitizenLocations = new HashSet<CitizenLocation>();
         }
+
+        public Citizen(int id, string forNavn, string efterNavn, int SSN1, int alder, string køn)
+        {
+            ID = id;
+            FirstName = forNavn;
+            LastName = efterNavn;
+            SSN = SSN1;
+            Age = alder;
+            Sex = køn;
+            TestDates = new HashSet<TestDate>();
+            CitizenLocations = new HashSet<CitizenLocation>();
+        }
+
         public int SSN {get; set;}
         public string LastName { get; set; }
         public string FirstName { get; set; }
