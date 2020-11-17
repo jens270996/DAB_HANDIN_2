@@ -78,18 +78,18 @@ namespace DAB_HANDIN_2
                         break;
 
                     case 'C':
+                        //tilføj testcenter
                         string[] hoursarr;
                         int open;
                         int close;
                         do
                         {
-
                             Console.WriteLine("Enter Test center hours: \"open close\"");
                             string hours = Console.ReadLine();
                             hoursarr = hours.Split(" ");
                         }
                         while (hoursarr.Length != 2 || !int.TryParse(hoursarr[0], out open) || !int.TryParse(hoursarr[1], out close));
-                        //tilføj testcenter og testmanagment
+                      
                         Console.WriteLine("Enter Test center name: \"name\"");
                         string name=Console.ReadLine();
                         using (var unitOfWork = new UnitOfWork(new CovidContext()))
