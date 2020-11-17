@@ -50,7 +50,7 @@ namespace DAB_HANDIN_2
                             Console.WriteLine("\n Kommune:             Antal smittede:");
                             for (int i = 0; i < pairs.Count; i++)
                             {
-                                Console.WriteLine("\n" + pairs[i].municipality+ "          " + pairs[i].infected);
+                                Console.WriteLine("\n" + pairs[i].municipality.Name+ "          " + pairs[i].infected);
                             }
                             Console.WriteLine("Tryk på en knap for at vælge en ny mulighed");
                             Console.ReadKey();
@@ -75,10 +75,11 @@ namespace DAB_HANDIN_2
                             Console.WriteLine("\n Muligt smittede borgere: ");
                             for (int i = 0; i < possibleInfectedList.Count(); i++)
                             { 
-                                Console.WriteLine("\n " + possibleInfectedList[i]);
-                                Console.WriteLine("Tryk på en knap for at vælge en ny mulighed");
-                                Console.ReadKey();
+                                Console.WriteLine("\n " + possibleInfectedList[i].FirstName + " "+ possibleInfectedList[i].LastName);
+                                
                             }
+                            Console.WriteLine("Tryk på en knap for at vælge en ny mulighed");
+                            Console.ReadKey();
                         }
                         break;
 
