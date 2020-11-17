@@ -34,7 +34,7 @@ namespace Covid19_Tracking.Persistence.Repositories
             var infectedLocations = infected.CitizenLocations.Where(c => infectedDates.Contains(c.Date.Date));
 
             List<Citizen> InfectedCitizens = new List<Citizen>();
-             foreach(var c in CovidContext.Citizens.Include(p=>p))
+             foreach(var c in CovidContext.Citizens.ToList())
                 {
                 var joinedlocations=c.CitizenLocations.Join(infectedLocations, i => i.Location, i => i.Location, (infector, infected) =>
                          new { infectorDate = infector.Date, inefectedDate = infected.Date });
@@ -52,7 +52,7 @@ namespace Covid19_Tracking.Persistence.Repositories
         }
         public IEnumerable<Citizen> GetInfectedCitizensInNation(Nation nation)
         {
-            var citizensInNation = CovidContext.Citizens.Include(c => c)
+            var citizensInNation = CovidContext.Citizens
                 .Where(c => c.Municipality.Nation == nation);
 
                 return citizensInNation.Include(c => c).Where(c => c.TestDates.Where(t => (t.Result == true) && (t.Date - DateTime.Today < TimeSpan.FromDays(14))).Any());
@@ -60,8 +60,12 @@ namespace Covid19_Tracking.Persistence.Repositories
         }
         public IEnumerable<Citizen> GetInfectedCitizens()
         {
-            
-            return CovidContext.Citizens.Include(c => c).Where(c => c.TestDates.Where(t => (t.Result == true) && (t.Date - DateTime.Today < TimeSpan.FromDays(14))).Any());
+
+            var citizens=CovidContext.Citizens.Include(c => c.TestDates).ToList();
+            citizens=citizens.Where(c => c.TestDates
+                .Where(t => (t.Result == true)).Where(t=>t.Date - DateTime.Today < TimeSpan.FromDays(14)).Any()).ToList();
+
+            return citizens;
 
         }
 
@@ -69,11 +73,11 @@ namespace Covid19_Tracking.Persistence.Repositories
         {
             if (gender == "all")
             {
-                return GetInfectedCitizens().Where(c => c.Age <= maxAge && c.Age >= minAge).Count();
+                return GetInfectedCitizens().ToList().Where(c => c.Age <= maxAge ).Where(c=>c.Age >= minAge).Count();
             }
             else
             {
-                return GetInfectedCitizens().Where(c => c.Age <= maxAge && c.Age >= minAge && c.Sex == gender).Count();
+                return GetInfectedCitizens().ToList().Where(c => c.Age <= maxAge).Where(c => c.Age >= minAge).Where(c=>c.Sex==gender).Count();
             }
         }
 
