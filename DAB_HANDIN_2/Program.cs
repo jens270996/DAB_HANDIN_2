@@ -52,6 +52,8 @@ namespace DAB_HANDIN_2
                             {
                                 Console.WriteLine("\n" + pairs[i].municipality+ "          " + pairs[i].infected);
                             }
+                            Console.WriteLine("Tryk på en knap for at vælge en ny mulighed");
+                            Console.ReadKey();
                         }
                         break;
 
@@ -74,6 +76,8 @@ namespace DAB_HANDIN_2
                             for (int i = 0; i < possibleInfectedList.Count(); i++)
                             { 
                                 Console.WriteLine("\n " + possibleInfectedList[i]);
+                                Console.WriteLine("Tryk på en knap for at vælge en ny mulighed");
+                                Console.ReadKey();
                             }
                         }
                         break;

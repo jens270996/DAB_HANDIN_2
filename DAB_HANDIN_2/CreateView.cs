@@ -12,7 +12,7 @@ namespace DAB_HANDIN_2
     {
         public CreateView()
         {
-
+            
         }
 
         private void AddCitizen()
@@ -39,11 +39,15 @@ namespace DAB_HANDIN_2
                 else
                 {
                     Console.WriteLine("Ugyldig data.");
+                    Console.WriteLine("Tryk på en knap for at vælge en ny mulighed");
+                    Console.ReadKey();
                 }
             }
             else
             {
-                Console.WriteLine("Ugyldigt kommune-navn.");
+                Console.WriteLine("Ugyldig kommunenavn.");
+                Console.WriteLine("Tryk på en knap for at vælge en ny mulighed");
+                Console.ReadKey();
             }
         }
 
@@ -93,7 +97,10 @@ namespace DAB_HANDIN_2
                 }
                 else
                 {
-                    Console.WriteLine("Invalid Center name");
+                    
+                    Console.WriteLine("Ugyldig Center navn.");
+                    Console.WriteLine("Tryk på en knap for at vælge en ny mulighed");
+                    Console.ReadKey();
                 }
             }
         }
@@ -160,13 +167,17 @@ namespace DAB_HANDIN_2
                     }
                     else
                     {
-                        Console.WriteLine("Indtastet adresse forkert, start kommandoen forfra");
+                        Console.WriteLine("Ugyldig adresse.");
+                        Console.WriteLine("Tryk på en knap for at vælge en ny mulighed");
+                        Console.ReadKey();
                     }
                 }
             }
             else
             {
-                Console.WriteLine("Forkert kommune, start kommandoen igen");
+                Console.WriteLine("Ugyldigt kommunenavn.");
+                Console.WriteLine("Tryk på en knap for at vælge en ny mulighed");
+                Console.ReadKey();
             }
         }
 
@@ -182,12 +193,6 @@ namespace DAB_HANDIN_2
                                   "\n - Tilføj nyt testresultat \n - Tilføj ny lokation ");
                 Console.WriteLine("\n Indtast et af de følgende bogstaver for at åbne en mulighed: \n T = Tilbage " +
                                   "\n B = Tilføj borger \n C = Tilføj testcenter \n O = Tilføj testledelse \n R = Tilføj testresultat \n L = Tilføj lokation ");
-
-
-                //*Create new Citizen
-                //Create new TestCenter and TestCenterManagement
-                //Create new Tests case
-                //Create new Location
 
                 string input = Console.ReadLine();
                 if (string.IsNullOrEmpty(input)) continue;
