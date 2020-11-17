@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DAB_HANDIN_2.Migrations
 {
     [DbContext(typeof(CovidContext))]
-    [Migration("20201116170353_Initialcommit")]
-    partial class Initialcommit
+    [Migration("20201117093553_initialcommit")]
+    partial class initialcommit
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -37,7 +37,7 @@ namespace DAB_HANDIN_2.Migrations
                     b.Property<string>("LastName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("MunicipalityID")
+                    b.Property<int>("MunicipalityID")
                         .HasColumnType("int");
 
                     b.Property<string>("SSN")
@@ -59,6 +59,7 @@ namespace DAB_HANDIN_2.Migrations
                             Age = 11,
                             FirstName = "Henrik",
                             LastName = "Hansen",
+                            MunicipalityID = 751,
                             SSN = "201209-9154",
                             Sex = "either"
                         },
@@ -68,6 +69,7 @@ namespace DAB_HANDIN_2.Migrations
                             Age = 85,
                             FirstName = "Lene",
                             LastName = "Mortensen",
+                            MunicipalityID = 751,
                             SSN = "230735-2189",
                             Sex = "female"
                         },
@@ -77,6 +79,7 @@ namespace DAB_HANDIN_2.Migrations
                             Age = 38,
                             FirstName = "Hans",
                             LastName = "Larsen",
+                            MunicipalityID = 751,
                             SSN = "100282-0686",
                             Sex = "female"
                         },
@@ -86,6 +89,7 @@ namespace DAB_HANDIN_2.Migrations
                             Age = 17,
                             FirstName = "Hans",
                             LastName = "Mortensen",
+                            MunicipalityID = 751,
                             SSN = "200503-1945",
                             Sex = "female"
                         },
@@ -95,6 +99,7 @@ namespace DAB_HANDIN_2.Migrations
                             Age = 14,
                             FirstName = "Lise",
                             LastName = "Frederiksen",
+                            MunicipalityID = 751,
                             SSN = "151006-5513",
                             Sex = "either"
                         },
@@ -104,6 +109,7 @@ namespace DAB_HANDIN_2.Migrations
                             Age = 83,
                             FirstName = "Hans",
                             LastName = "Olsen",
+                            MunicipalityID = 751,
                             SSN = "020637-9743",
                             Sex = "female"
                         },
@@ -113,6 +119,7 @@ namespace DAB_HANDIN_2.Migrations
                             Age = 47,
                             FirstName = "Mette",
                             LastName = "Hansen",
+                            MunicipalityID = 751,
                             SSN = "250273-3438",
                             Sex = "female"
                         },
@@ -122,6 +129,7 @@ namespace DAB_HANDIN_2.Migrations
                             Age = 1,
                             FirstName = "Morten",
                             LastName = "Olsen",
+                            MunicipalityID = 751,
                             SSN = "160819-2120",
                             Sex = "male"
                         },
@@ -131,6 +139,7 @@ namespace DAB_HANDIN_2.Migrations
                             Age = 0,
                             FirstName = "Bob",
                             LastName = "Mortensen",
+                            MunicipalityID = 751,
                             SSN = "180920-7789",
                             Sex = "either"
                         },
@@ -140,6 +149,7 @@ namespace DAB_HANDIN_2.Migrations
                             Age = 29,
                             FirstName = "Lene",
                             LastName = "Olsen",
+                            MunicipalityID = 751,
                             SSN = "210991-9650",
                             Sex = "either"
                         },
@@ -149,6 +159,7 @@ namespace DAB_HANDIN_2.Migrations
                             Age = 28,
                             FirstName = "Alice",
                             LastName = "Frederiksen",
+                            MunicipalityID = 751,
                             SSN = "180292-3819",
                             Sex = "male"
                         },
@@ -158,6 +169,7 @@ namespace DAB_HANDIN_2.Migrations
                             Age = 80,
                             FirstName = "Alice",
                             LastName = "Jensen",
+                            MunicipalityID = 751,
                             SSN = "071140-6096",
                             Sex = "either"
                         },
@@ -167,6 +179,7 @@ namespace DAB_HANDIN_2.Migrations
                             Age = 98,
                             FirstName = "Alice",
                             LastName = "Olsen",
+                            MunicipalityID = 751,
                             SSN = "040522-4917",
                             Sex = "female"
                         },
@@ -176,6 +189,7 @@ namespace DAB_HANDIN_2.Migrations
                             Age = 43,
                             FirstName = "Hanne",
                             LastName = "Olsen",
+                            MunicipalityID = 751,
                             SSN = "210377-8834",
                             Sex = "either"
                         },
@@ -185,6 +199,7 @@ namespace DAB_HANDIN_2.Migrations
                             Age = 15,
                             FirstName = "Mette",
                             LastName = "Olsen",
+                            MunicipalityID = 751,
                             SSN = "140505-8822",
                             Sex = "female"
                         },
@@ -194,6 +209,7 @@ namespace DAB_HANDIN_2.Migrations
                             Age = 91,
                             FirstName = "Bob",
                             LastName = "Larsen",
+                            MunicipalityID = 751,
                             SSN = "161029-0902",
                             Sex = "either"
                         },
@@ -203,6 +219,7 @@ namespace DAB_HANDIN_2.Migrations
                             Age = 38,
                             FirstName = "Morten",
                             LastName = "Jensen",
+                            MunicipalityID = 751,
                             SSN = "250382-2831",
                             Sex = "female"
                         },
@@ -212,6 +229,7 @@ namespace DAB_HANDIN_2.Migrations
                             Age = 58,
                             FirstName = "Jens",
                             LastName = "Mortensen",
+                            MunicipalityID = 751,
                             SSN = "100662-6508",
                             Sex = "female"
                         },
@@ -221,6 +239,7 @@ namespace DAB_HANDIN_2.Migrations
                             Age = 87,
                             FirstName = "Mathias",
                             LastName = "Frederiksen",
+                            MunicipalityID = 751,
                             SSN = "260633-8511",
                             Sex = "either"
                         },
@@ -230,6 +249,7 @@ namespace DAB_HANDIN_2.Migrations
                             Age = 76,
                             FirstName = "Hanne",
                             LastName = "Mortensen",
+                            MunicipalityID = 751,
                             SSN = "140944-8894",
                             Sex = "male"
                         },
@@ -239,6 +259,7 @@ namespace DAB_HANDIN_2.Migrations
                             Age = 57,
                             FirstName = "Alice",
                             LastName = "Olsen",
+                            MunicipalityID = 751,
                             SSN = "150563-4848",
                             Sex = "female"
                         },
@@ -248,6 +269,7 @@ namespace DAB_HANDIN_2.Migrations
                             Age = 87,
                             FirstName = "Jens",
                             LastName = "Mortensen",
+                            MunicipalityID = 751,
                             SSN = "010833-4669",
                             Sex = "female"
                         },
@@ -257,6 +279,7 @@ namespace DAB_HANDIN_2.Migrations
                             Age = 14,
                             FirstName = "Hanne",
                             LastName = "Larsen",
+                            MunicipalityID = 751,
                             SSN = "260306-1597",
                             Sex = "male"
                         },
@@ -266,6 +289,7 @@ namespace DAB_HANDIN_2.Migrations
                             Age = 66,
                             FirstName = "Jens",
                             LastName = "Larsen",
+                            MunicipalityID = 751,
                             SSN = "100354-5700",
                             Sex = "female"
                         },
@@ -275,6 +299,7 @@ namespace DAB_HANDIN_2.Migrations
                             Age = 39,
                             FirstName = "Lene",
                             LastName = "Mortensen",
+                            MunicipalityID = 751,
                             SSN = "130581-6589",
                             Sex = "male"
                         },
@@ -284,6 +309,7 @@ namespace DAB_HANDIN_2.Migrations
                             Age = 81,
                             FirstName = "Henrik",
                             LastName = "Jensen",
+                            MunicipalityID = 101,
                             SSN = "030239-2849",
                             Sex = "female"
                         },
@@ -293,6 +319,7 @@ namespace DAB_HANDIN_2.Migrations
                             Age = 87,
                             FirstName = "Jens",
                             LastName = "Frederiksen",
+                            MunicipalityID = 101,
                             SSN = "260533-9722",
                             Sex = "either"
                         },
@@ -302,6 +329,7 @@ namespace DAB_HANDIN_2.Migrations
                             Age = 56,
                             FirstName = "Mette",
                             LastName = "Hansen",
+                            MunicipalityID = 101,
                             SSN = "140964-3558",
                             Sex = "male"
                         },
@@ -311,6 +339,7 @@ namespace DAB_HANDIN_2.Migrations
                             Age = 17,
                             FirstName = "Alice",
                             LastName = "Hansen",
+                            MunicipalityID = 101,
                             SSN = "051103-4086",
                             Sex = "either"
                         },
@@ -320,6 +349,7 @@ namespace DAB_HANDIN_2.Migrations
                             Age = 58,
                             FirstName = "Jens",
                             LastName = "Olsen",
+                            MunicipalityID = 101,
                             SSN = "061062-6328",
                             Sex = "male"
                         },
@@ -329,6 +359,7 @@ namespace DAB_HANDIN_2.Migrations
                             Age = 83,
                             FirstName = "Mette",
                             LastName = "Mortensen",
+                            MunicipalityID = 101,
                             SSN = "021137-0508",
                             Sex = "female"
                         },
@@ -338,6 +369,7 @@ namespace DAB_HANDIN_2.Migrations
                             Age = 43,
                             FirstName = "Hans",
                             LastName = "Hansen",
+                            MunicipalityID = 101,
                             SSN = "240877-0805",
                             Sex = "either"
                         },
@@ -347,6 +379,7 @@ namespace DAB_HANDIN_2.Migrations
                             Age = 94,
                             FirstName = "Mathias",
                             LastName = "Larsen",
+                            MunicipalityID = 101,
                             SSN = "190426-6611",
                             Sex = "either"
                         },
@@ -356,6 +389,7 @@ namespace DAB_HANDIN_2.Migrations
                             Age = 90,
                             FirstName = "Henrik",
                             LastName = "Hansen",
+                            MunicipalityID = 101,
                             SSN = "081130-0002",
                             Sex = "male"
                         },
@@ -365,6 +399,7 @@ namespace DAB_HANDIN_2.Migrations
                             Age = 69,
                             FirstName = "Morten",
                             LastName = "Mortensen",
+                            MunicipalityID = 101,
                             SSN = "170551-0100",
                             Sex = "female"
                         },
@@ -374,6 +409,7 @@ namespace DAB_HANDIN_2.Migrations
                             Age = 43,
                             FirstName = "Alice",
                             LastName = "Jensen",
+                            MunicipalityID = 101,
                             SSN = "240477-4467",
                             Sex = "either"
                         },
@@ -383,6 +419,7 @@ namespace DAB_HANDIN_2.Migrations
                             Age = 30,
                             FirstName = "Lise",
                             LastName = "Hansen",
+                            MunicipalityID = 101,
                             SSN = "090490-6312",
                             Sex = "either"
                         },
@@ -392,6 +429,7 @@ namespace DAB_HANDIN_2.Migrations
                             Age = 54,
                             FirstName = "Mathias",
                             LastName = "Mortensen",
+                            MunicipalityID = 101,
                             SSN = "151266-4158",
                             Sex = "male"
                         },
@@ -401,6 +439,7 @@ namespace DAB_HANDIN_2.Migrations
                             Age = 81,
                             FirstName = "Alice",
                             LastName = "Frederiksen",
+                            MunicipalityID = 101,
                             SSN = "280139-6939",
                             Sex = "either"
                         },
@@ -410,6 +449,7 @@ namespace DAB_HANDIN_2.Migrations
                             Age = 27,
                             FirstName = "Alice",
                             LastName = "Mortensen",
+                            MunicipalityID = 101,
                             SSN = "080193-9200",
                             Sex = "either"
                         },
@@ -419,6 +459,7 @@ namespace DAB_HANDIN_2.Migrations
                             Age = 80,
                             FirstName = "Mette",
                             LastName = "Hansen",
+                            MunicipalityID = 101,
                             SSN = "280340-2357",
                             Sex = "male"
                         },
@@ -428,6 +469,7 @@ namespace DAB_HANDIN_2.Migrations
                             Age = 93,
                             FirstName = "Lise",
                             LastName = "Larsen",
+                            MunicipalityID = 101,
                             SSN = "160527-9487",
                             Sex = "male"
                         },
@@ -437,6 +479,7 @@ namespace DAB_HANDIN_2.Migrations
                             Age = 7,
                             FirstName = "Lise",
                             LastName = "Mortensen",
+                            MunicipalityID = 101,
                             SSN = "110813-0713",
                             Sex = "female"
                         },
@@ -446,6 +489,7 @@ namespace DAB_HANDIN_2.Migrations
                             Age = 85,
                             FirstName = "Mette",
                             LastName = "Frederiksen",
+                            MunicipalityID = 101,
                             SSN = "081035-4520",
                             Sex = "male"
                         },
@@ -455,6 +499,7 @@ namespace DAB_HANDIN_2.Migrations
                             Age = 5,
                             FirstName = "Bob",
                             LastName = "Hansen",
+                            MunicipalityID = 101,
                             SSN = "080915-7389",
                             Sex = "female"
                         },
@@ -464,6 +509,7 @@ namespace DAB_HANDIN_2.Migrations
                             Age = 50,
                             FirstName = "Bob",
                             LastName = "Hansen",
+                            MunicipalityID = 101,
                             SSN = "220370-4840",
                             Sex = "either"
                         },
@@ -473,6 +519,7 @@ namespace DAB_HANDIN_2.Migrations
                             Age = 45,
                             FirstName = "Hanne",
                             LastName = "Jensen",
+                            MunicipalityID = 101,
                             SSN = "200975-6615",
                             Sex = "either"
                         },
@@ -482,6 +529,7 @@ namespace DAB_HANDIN_2.Migrations
                             Age = 89,
                             FirstName = "Lise",
                             LastName = "Mortensen",
+                            MunicipalityID = 101,
                             SSN = "141131-0659",
                             Sex = "female"
                         },
@@ -491,6 +539,7 @@ namespace DAB_HANDIN_2.Migrations
                             Age = 74,
                             FirstName = "Jesper",
                             LastName = "Larsen",
+                            MunicipalityID = 101,
                             SSN = "131046-3640",
                             Sex = "either"
                         },
@@ -500,6 +549,7 @@ namespace DAB_HANDIN_2.Migrations
                             Age = 29,
                             FirstName = "Lise",
                             LastName = "Mortensen",
+                            MunicipalityID = 101,
                             SSN = "190391-3178",
                             Sex = "either"
                         },
@@ -509,6 +559,7 @@ namespace DAB_HANDIN_2.Migrations
                             Age = 61,
                             FirstName = "Alice",
                             LastName = "Olsen",
+                            MunicipalityID = 740,
                             SSN = "120859-8434",
                             Sex = "male"
                         },
@@ -518,6 +569,7 @@ namespace DAB_HANDIN_2.Migrations
                             Age = 57,
                             FirstName = "Alice",
                             LastName = "Frederiksen",
+                            MunicipalityID = 740,
                             SSN = "011063-7581",
                             Sex = "male"
                         },
@@ -527,6 +579,7 @@ namespace DAB_HANDIN_2.Migrations
                             Age = 78,
                             FirstName = "Mathias",
                             LastName = "Frederiksen",
+                            MunicipalityID = 740,
                             SSN = "250942-2588",
                             Sex = "female"
                         },
@@ -536,6 +589,7 @@ namespace DAB_HANDIN_2.Migrations
                             Age = 29,
                             FirstName = "Henrik",
                             LastName = "Frederiksen",
+                            MunicipalityID = 740,
                             SSN = "120291-8868",
                             Sex = "either"
                         },
@@ -545,6 +599,7 @@ namespace DAB_HANDIN_2.Migrations
                             Age = 2,
                             FirstName = "Lene",
                             LastName = "Hansen",
+                            MunicipalityID = 740,
                             SSN = "150518-3294",
                             Sex = "female"
                         },
@@ -554,6 +609,7 @@ namespace DAB_HANDIN_2.Migrations
                             Age = 6,
                             FirstName = "Henrik",
                             LastName = "Mortensen",
+                            MunicipalityID = 740,
                             SSN = "080314-8040",
                             Sex = "female"
                         },
@@ -563,6 +619,7 @@ namespace DAB_HANDIN_2.Migrations
                             Age = 45,
                             FirstName = "Henrik",
                             LastName = "Mortensen",
+                            MunicipalityID = 740,
                             SSN = "280875-4848",
                             Sex = "female"
                         },
@@ -572,6 +629,7 @@ namespace DAB_HANDIN_2.Migrations
                             Age = 79,
                             FirstName = "Lene",
                             LastName = "Frederiksen",
+                            MunicipalityID = 740,
                             SSN = "160141-3010",
                             Sex = "male"
                         },
@@ -581,6 +639,7 @@ namespace DAB_HANDIN_2.Migrations
                             Age = 1,
                             FirstName = "Mette",
                             LastName = "Frederiksen",
+                            MunicipalityID = 740,
                             SSN = "141219-7378",
                             Sex = "female"
                         },
@@ -590,6 +649,7 @@ namespace DAB_HANDIN_2.Migrations
                             Age = 47,
                             FirstName = "Lene",
                             LastName = "Jensen",
+                            MunicipalityID = 740,
                             SSN = "130673-2333",
                             Sex = "male"
                         },
@@ -599,6 +659,7 @@ namespace DAB_HANDIN_2.Migrations
                             Age = 60,
                             FirstName = "Henrik",
                             LastName = "Larsen",
+                            MunicipalityID = 740,
                             SSN = "130660-0632",
                             Sex = "either"
                         },
@@ -608,6 +669,7 @@ namespace DAB_HANDIN_2.Migrations
                             Age = 40,
                             FirstName = "Jesper",
                             LastName = "Mortensen",
+                            MunicipalityID = 740,
                             SSN = "150580-9963",
                             Sex = "either"
                         },
@@ -617,6 +679,7 @@ namespace DAB_HANDIN_2.Migrations
                             Age = 99,
                             FirstName = "Jesper",
                             LastName = "Mortensen",
+                            MunicipalityID = 740,
                             SSN = "080121-5419",
                             Sex = "female"
                         },
@@ -626,6 +689,7 @@ namespace DAB_HANDIN_2.Migrations
                             Age = 79,
                             FirstName = "Hanne",
                             LastName = "Larsen",
+                            MunicipalityID = 740,
                             SSN = "080141-4287",
                             Sex = "female"
                         },
@@ -635,6 +699,7 @@ namespace DAB_HANDIN_2.Migrations
                             Age = 54,
                             FirstName = "Jesper",
                             LastName = "Mortensen",
+                            MunicipalityID = 740,
                             SSN = "050466-5745",
                             Sex = "either"
                         },
@@ -644,6 +709,7 @@ namespace DAB_HANDIN_2.Migrations
                             Age = 8,
                             FirstName = "Hanne",
                             LastName = "Frederiksen",
+                            MunicipalityID = 740,
                             SSN = "170312-3999",
                             Sex = "female"
                         },
@@ -653,6 +719,7 @@ namespace DAB_HANDIN_2.Migrations
                             Age = 95,
                             FirstName = "Henrik",
                             LastName = "Olsen",
+                            MunicipalityID = 740,
                             SSN = "160925-4371",
                             Sex = "male"
                         },
@@ -662,6 +729,7 @@ namespace DAB_HANDIN_2.Migrations
                             Age = 16,
                             FirstName = "Bob",
                             LastName = "Jensen",
+                            MunicipalityID = 740,
                             SSN = "120904-3356",
                             Sex = "male"
                         },
@@ -671,6 +739,7 @@ namespace DAB_HANDIN_2.Migrations
                             Age = 18,
                             FirstName = "Lise",
                             LastName = "Frederiksen",
+                            MunicipalityID = 740,
                             SSN = "110802-9350",
                             Sex = "either"
                         },
@@ -680,6 +749,7 @@ namespace DAB_HANDIN_2.Migrations
                             Age = 33,
                             FirstName = "Lise",
                             LastName = "Larsen",
+                            MunicipalityID = 740,
                             SSN = "050687-4750",
                             Sex = "either"
                         },
@@ -689,6 +759,7 @@ namespace DAB_HANDIN_2.Migrations
                             Age = 68,
                             FirstName = "Lise",
                             LastName = "Hansen",
+                            MunicipalityID = 740,
                             SSN = "230252-6329",
                             Sex = "either"
                         },
@@ -698,6 +769,7 @@ namespace DAB_HANDIN_2.Migrations
                             Age = 71,
                             FirstName = "Alice",
                             LastName = "Olsen",
+                            MunicipalityID = 740,
                             SSN = "101249-7038",
                             Sex = "either"
                         },
@@ -707,6 +779,7 @@ namespace DAB_HANDIN_2.Migrations
                             Age = 77,
                             FirstName = "Jesper",
                             LastName = "Mortensen",
+                            MunicipalityID = 740,
                             SSN = "160343-8991",
                             Sex = "male"
                         },
@@ -716,6 +789,7 @@ namespace DAB_HANDIN_2.Migrations
                             Age = 21,
                             FirstName = "Jens",
                             LastName = "Olsen",
+                            MunicipalityID = 740,
                             SSN = "170699-2395",
                             Sex = "either"
                         },
@@ -725,6 +799,7 @@ namespace DAB_HANDIN_2.Migrations
                             Age = 40,
                             FirstName = "Bob",
                             LastName = "Frederiksen",
+                            MunicipalityID = 740,
                             SSN = "091280-7353",
                             Sex = "male"
                         },
@@ -734,6 +809,7 @@ namespace DAB_HANDIN_2.Migrations
                             Age = 60,
                             FirstName = "Jesper",
                             LastName = "Mortensen",
+                            MunicipalityID = 851,
                             SSN = "160960-4286",
                             Sex = "male"
                         },
@@ -743,6 +819,7 @@ namespace DAB_HANDIN_2.Migrations
                             Age = 6,
                             FirstName = "Jesper",
                             LastName = "Larsen",
+                            MunicipalityID = 851,
                             SSN = "190314-6674",
                             Sex = "male"
                         },
@@ -752,6 +829,7 @@ namespace DAB_HANDIN_2.Migrations
                             Age = 59,
                             FirstName = "Morten",
                             LastName = "Olsen",
+                            MunicipalityID = 851,
                             SSN = "060761-7447",
                             Sex = "male"
                         },
@@ -761,6 +839,7 @@ namespace DAB_HANDIN_2.Migrations
                             Age = 18,
                             FirstName = "Mette",
                             LastName = "Hansen",
+                            MunicipalityID = 851,
                             SSN = "190502-8797",
                             Sex = "male"
                         },
@@ -770,6 +849,7 @@ namespace DAB_HANDIN_2.Migrations
                             Age = 0,
                             FirstName = "Mette",
                             LastName = "Jensen",
+                            MunicipalityID = 851,
                             SSN = "011220-0166",
                             Sex = "female"
                         },
@@ -779,6 +859,7 @@ namespace DAB_HANDIN_2.Migrations
                             Age = 1,
                             FirstName = "Lise",
                             LastName = "Larsen",
+                            MunicipalityID = 851,
                             SSN = "160619-8717",
                             Sex = "female"
                         },
@@ -788,6 +869,7 @@ namespace DAB_HANDIN_2.Migrations
                             Age = 96,
                             FirstName = "Mathias",
                             LastName = "Olsen",
+                            MunicipalityID = 851,
                             SSN = "070724-2622",
                             Sex = "female"
                         },
@@ -797,6 +879,7 @@ namespace DAB_HANDIN_2.Migrations
                             Age = 13,
                             FirstName = "Jesper",
                             LastName = "Hansen",
+                            MunicipalityID = 851,
                             SSN = "111207-6379",
                             Sex = "either"
                         },
@@ -806,6 +889,7 @@ namespace DAB_HANDIN_2.Migrations
                             Age = 87,
                             FirstName = "Bob",
                             LastName = "Hansen",
+                            MunicipalityID = 851,
                             SSN = "090733-5712",
                             Sex = "male"
                         },
@@ -815,6 +899,7 @@ namespace DAB_HANDIN_2.Migrations
                             Age = 61,
                             FirstName = "Lene",
                             LastName = "Jensen",
+                            MunicipalityID = 851,
                             SSN = "080859-4024",
                             Sex = "female"
                         },
@@ -824,6 +909,7 @@ namespace DAB_HANDIN_2.Migrations
                             Age = 64,
                             FirstName = "Bob",
                             LastName = "Olsen",
+                            MunicipalityID = 851,
                             SSN = "031156-2270",
                             Sex = "male"
                         },
@@ -833,6 +919,7 @@ namespace DAB_HANDIN_2.Migrations
                             Age = 44,
                             FirstName = "Bob",
                             LastName = "Jensen",
+                            MunicipalityID = 851,
                             SSN = "230876-3875",
                             Sex = "female"
                         },
@@ -842,6 +929,7 @@ namespace DAB_HANDIN_2.Migrations
                             Age = 64,
                             FirstName = "Henrik",
                             LastName = "Olsen",
+                            MunicipalityID = 851,
                             SSN = "280556-3992",
                             Sex = "either"
                         },
@@ -851,6 +939,7 @@ namespace DAB_HANDIN_2.Migrations
                             Age = 22,
                             FirstName = "Lise",
                             LastName = "Frederiksen",
+                            MunicipalityID = 851,
                             SSN = "260498-6785",
                             Sex = "female"
                         },
@@ -860,6 +949,7 @@ namespace DAB_HANDIN_2.Migrations
                             Age = 97,
                             FirstName = "Jesper",
                             LastName = "Hansen",
+                            MunicipalityID = 851,
                             SSN = "261123-7154",
                             Sex = "male"
                         },
@@ -869,6 +959,7 @@ namespace DAB_HANDIN_2.Migrations
                             Age = 28,
                             FirstName = "Mette",
                             LastName = "Jensen",
+                            MunicipalityID = 851,
                             SSN = "040592-9658",
                             Sex = "male"
                         },
@@ -878,6 +969,7 @@ namespace DAB_HANDIN_2.Migrations
                             Age = 48,
                             FirstName = "Lene",
                             LastName = "Jensen",
+                            MunicipalityID = 851,
                             SSN = "270372-5739",
                             Sex = "male"
                         },
@@ -887,6 +979,7 @@ namespace DAB_HANDIN_2.Migrations
                             Age = 28,
                             FirstName = "Mette",
                             LastName = "Jensen",
+                            MunicipalityID = 851,
                             SSN = "080192-6842",
                             Sex = "either"
                         },
@@ -896,6 +989,7 @@ namespace DAB_HANDIN_2.Migrations
                             Age = 18,
                             FirstName = "Mette",
                             LastName = "Olsen",
+                            MunicipalityID = 851,
                             SSN = "170702-3222",
                             Sex = "male"
                         },
@@ -905,6 +999,7 @@ namespace DAB_HANDIN_2.Migrations
                             Age = 89,
                             FirstName = "Henrik",
                             LastName = "Larsen",
+                            MunicipalityID = 851,
                             SSN = "220931-5049",
                             Sex = "male"
                         },
@@ -914,6 +1009,7 @@ namespace DAB_HANDIN_2.Migrations
                             Age = 86,
                             FirstName = "Jesper",
                             LastName = "Olsen",
+                            MunicipalityID = 851,
                             SSN = "280634-1809",
                             Sex = "male"
                         },
@@ -923,6 +1019,7 @@ namespace DAB_HANDIN_2.Migrations
                             Age = 99,
                             FirstName = "Bob",
                             LastName = "Frederiksen",
+                            MunicipalityID = 851,
                             SSN = "040221-5872",
                             Sex = "either"
                         },
@@ -932,6 +1029,7 @@ namespace DAB_HANDIN_2.Migrations
                             Age = 64,
                             FirstName = "Lise",
                             LastName = "Olsen",
+                            MunicipalityID = 851,
                             SSN = "240156-0145",
                             Sex = "either"
                         },
@@ -941,6 +1039,7 @@ namespace DAB_HANDIN_2.Migrations
                             Age = 54,
                             FirstName = "Hanne",
                             LastName = "Hansen",
+                            MunicipalityID = 851,
                             SSN = "250866-4855",
                             Sex = "female"
                         },
@@ -950,6 +1049,7 @@ namespace DAB_HANDIN_2.Migrations
                             Age = 17,
                             FirstName = "Morten",
                             LastName = "Larsen",
+                            MunicipalityID = 851,
                             SSN = "150103-4148",
                             Sex = "male"
                         });
@@ -1753,10 +1853,16 @@ namespace DAB_HANDIN_2.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
+                    b.Property<string>("CenterName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("CloseHour")
+                        .HasColumnType("int");
+
                     b.Property<int?>("MunicipalityID")
                         .HasColumnType("int");
 
-                    b.Property<int>("hours")
+                    b.Property<int>("OpenHour")
                         .HasColumnType("int");
 
                     b.HasKey("TestCenterId");
@@ -1825,7 +1931,9 @@ namespace DAB_HANDIN_2.Migrations
                 {
                     b.HasOne("Covid19_Tracking.Domain.Municipality", "Municipality")
                         .WithMany("Citizens")
-                        .HasForeignKey("MunicipalityID");
+                        .HasForeignKey("MunicipalityID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Municipality");
                 });
