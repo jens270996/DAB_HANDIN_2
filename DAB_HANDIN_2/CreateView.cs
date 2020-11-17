@@ -132,6 +132,31 @@ namespace DAB_HANDIN_2
 
                     case 'L':
                         // tilføj lokation
+                        Console.WriteLine("Indtast Navn på borgers kommune:");
+                        muni = Console.ReadLine();
+                        mun = new UnitOfWork(new CovidContext()).Municipalities.Find(c => c.Name == muni).First();
+                        if (mun.Name == muni)
+                        {
+                            Console.WriteLine("Indtast adressen på den nye lokation");
+                            string address = Console.ReadLine();
+                            using (var unitOfWork = new UnitOfWork(new CovidContext()))
+                            {
+                                if (address != null)
+                                {
+                                    Location location = new Location(address);
+                                    unitOfWork.Locations.Add(location);
+                                    unitOfWork.Complete();
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Indtastet adresse forkert, start kommandoen forfra");
+                                }
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("Forkert kommune, start kommandoen igen");
+                        }
                         break;
 
                     default:
