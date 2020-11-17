@@ -4,6 +4,8 @@ using Covid19_Tracking.Persistence;
 using System;
 using System.Linq;
 using System.Linq.Expressions;
+
+
 namespace DAB_HANDIN_2
 {
     public class CreateView
