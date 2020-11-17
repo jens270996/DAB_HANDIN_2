@@ -127,10 +127,46 @@ namespace DAB_HANDIN_2
 
                     case 'R':
                         //tilføj testresultat
-                        Console.WriteLine("")
+                        Console.WriteLine("Indtast oplysninger om resultat: \"BorgerID centerID resultat(p/n) status");
+                        var tokens=Console.ReadLine().Split(" ");
+                        int borgerid;
+                        int centerid;
+                        Citizen cit=null;
+                        TestCenter cent = null;
+                        if (int.TryParse(tokens[0], out borgerid) && int.TryParse(tokens[1], out centerid))
+                        {
+                            cit = new UnitOfWork(new CovidContext()).Citizens.Find(c => c.ID == borgerid).First();
+                            cent = new UnitOfWork(new CovidContext()).TestCenters.Find(c => c.TestCenterId == centerid).First();
+
+                            if (cit.ID == borgerid && cent.TestCenterId == centerid)
+                            {
+                                bool pos = false;
+                                if (tokens[2] == "p")
+                                    pos = true;
+                                using (var unitOfWork = new UnitOfWork(new CovidContext()))
+                                {
+                                    TestDate test = new TestDate()
+                                    {
+                                        TestCenterID = centerid
+                                        ,
+                                        Citizen_ID = borgerid
+                                        ,
+                                        Date = DateTime.Now
+                                        ,
+                                        Status = tokens[3]
+                                        ,
+                                        Result = pos
+                                    };
+
+                                    unitOfWork.TestDates.Add(test);
+                                    unitOfWork.Complete();
+                                }
+                            }
+                        }
                         break;
 
                     case 'L':
+
                         // tilføj lokation
                         Console.WriteLine("Indtast Navn på borgers kommune:");
                         muni = Console.ReadLine();
