@@ -15,6 +15,161 @@ namespace DAB_HANDIN_2
 
         }
 
+        private void AddCitizen()
+        {
+            // tilføj ny borger
+            Console.WriteLine("Indtast Navn på borgers kommune:");
+            var muni = Console.ReadLine();
+            var mun = new UnitOfWork(new CovidContext()).Municipalities.Find(c => c.Name == muni).First();
+            if (mun.Name == muni)
+            {
+                Console.WriteLine("Indtast Navn, ssn, alder, køn: \"Fornavn efternavn ssn alder køn\"");
+                var tokens = Console.ReadLine().Split(" ");
+                int val;
+                if (tokens.Length == 5 && int.TryParse(tokens[3], out val))
+                {
+                    using (var unitOfWork = new UnitOfWork(new CovidContext()))
+                    {
+                        var citi = new Citizen(tokens[0], tokens[1], tokens[2], val, tokens[4], mun.ID);
+
+                        unitOfWork.Citizens.Add(citi);
+                        unitOfWork.Complete();
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Ugyldig data.");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Ugyldigt kommune-navn.");
+            }
+        }
+
+        private void AddTestCenter()
+        {
+            //tilføj testcenter
+            string[] hoursarr;
+            int open;
+            int close;
+            do
+            {
+                Console.WriteLine("Enter Test center hours: \"open close\"");
+                string hours = Console.ReadLine();
+                hoursarr = hours.Split(" ");
+            }
+            while (hoursarr.Length != 2 || !int.TryParse(hoursarr[0], out open) || !int.TryParse(hoursarr[1], out close));
+
+            Console.WriteLine("Enter Test center name: \"name\"");
+            string name = Console.ReadLine();
+            using (var unitOfWork = new UnitOfWork(new CovidContext()))
+            {
+                var testCenter = new TestCenter(open, close, name);
+
+                unitOfWork.TestCenters.Add(testCenter);
+                unitOfWork.Complete();
+            }
+        }
+
+        private void AddManagment()
+        {
+            //tilføj Testledelse
+            Console.WriteLine("Skriv navn på testcenter der ledes:");
+            var name = Console.ReadLine();
+            Console.WriteLine("Indtast telefon nr. og email: \"tlf email\"");
+            string[] res = Console.ReadLine().Split(" ");
+            using (var unitOfWork = new UnitOfWork(new CovidContext()))
+            {
+                TestCenter center = unitOfWork.TestCenters.GetAll().Where(s => s.CenterName == name).First();
+                TestCenterManagement testCenterManagement = null;
+                if (center != null)
+                {
+                    testCenterManagement = new TestCenterManagement(center.TestCenterId, res[0], int.Parse(res[1]));
+
+
+                    unitOfWork.TestCenterManagements.Add(testCenterManagement);
+                    unitOfWork.Complete();
+                }
+                else
+                {
+                    Console.WriteLine("Invalid Center name");
+                }
+            }
+        }
+
+        private void AddTestResult()
+        {
+            //tilføj testresultat
+            Console.WriteLine("Indtast oplysninger om resultat: \"BorgerID centerID resultat(p/n) status");
+            var tokens = Console.ReadLine().Split(" ");
+            int borgerid;
+            int centerid;
+            Citizen cit = null;
+            TestCenter cent = null;
+            if (int.TryParse(tokens[0], out borgerid) && int.TryParse(tokens[1], out centerid))
+            {
+                cit = new UnitOfWork(new CovidContext()).Citizens.Find(c => c.ID == borgerid).First();
+                cent = new UnitOfWork(new CovidContext()).TestCenters.Find(c => c.TestCenterId == centerid).First();
+
+                if (cit.ID == borgerid && cent.TestCenterId == centerid)
+                {
+                    bool pos = false;
+                    if (tokens[2] == "p")
+                        pos = true;
+                    using (var unitOfWork = new UnitOfWork(new CovidContext()))
+                    {
+                        TestDate test = new TestDate()
+                        {
+                            TestCenterID = centerid
+                            ,
+                            Citizen_ID = borgerid
+                            ,
+                            Date = DateTime.Now
+                            ,
+                            Status = tokens[3]
+                            ,
+                            Result = pos
+                        };
+
+                        unitOfWork.TestDates.Add(test);
+                        unitOfWork.Complete();
+                    }
+                }
+            }
+        }
+
+        private void AddLoaction()
+        {
+
+            // tilføj lokation
+            Console.WriteLine("Indtast Navn på borgers kommune:");
+            var muni = Console.ReadLine();
+            var mun = new UnitOfWork(new CovidContext()).Municipalities.Find(c => c.Name == muni).First();
+            if (mun.Name == muni)
+            {
+                Console.WriteLine("Indtast adressen på den nye lokation");
+                string address = Console.ReadLine();
+                using (var unitOfWork = new UnitOfWork(new CovidContext()))
+                {
+                    if (address != null)
+                    {
+                        Location location = new Location(address);
+                        unitOfWork.Locations.Add(location);
+                        unitOfWork.Complete();
+                    }
+                    else
+                    {
+                        Console.WriteLine("Indtastet adresse forkert, start kommandoen forfra");
+                    }
+                }
+            }
+            else
+            {
+                Console.WriteLine("Forkert kommune, start kommandoen igen");
+            }
+        }
+
         public void OpenCreateMenu()
         {
             bool finish = false;
@@ -44,155 +199,23 @@ namespace DAB_HANDIN_2
                         break;
 
                     case 'B':
-                        Console.WriteLine("Indtast Navn på borgers kommune:");
-                        var muni = Console.ReadLine();
-                        var mun = new UnitOfWork(new CovidContext()).Municipalities.Find(c => c.Name == muni).First();
-                        if(mun.Name==muni)
-                        {
-                            Console.WriteLine("Indtast Navn, ssn, alder, køn: \"Fornavn efternavn ssn alder køn\"");
-                            var tokens = Console.ReadLine().Split(" ");
-                            int val;
-                            if (tokens.Length == 5 && int.TryParse(tokens[3], out val))
-                            {
-                                using (var unitOfWork = new UnitOfWork(new CovidContext()))
-                                {
-                                    var cit = new Citizen(mun.ID, tokens[0], tokens[1], tokens[2], val, tokens[4]);
-
-                                    unitOfWork.Citizens.Add(cit);
-                                    unitOfWork.Complete();
-                                }
-                            }
-                            else
-                            {
-                                Console.WriteLine("Ugyldig data.");
-                            }
-
-                            // tilføj ny borger
-                            
-                        }
-                        else
-                        {
-                            Console.WriteLine("Ugyldigt kommune-navn.");
-                        }
-
+                        AddCitizen();
                         break;
 
                     case 'C':
-                        //tilføj testcenter
-                        string[] hoursarr;
-                        int open;
-                        int close;
-                        do
-                        {
-                            Console.WriteLine("Enter Test center hours: \"open close\"");
-                            string hours = Console.ReadLine();
-                            hoursarr = hours.Split(" ");
-                        }
-                        while (hoursarr.Length != 2 || !int.TryParse(hoursarr[0], out open) || !int.TryParse(hoursarr[1], out close));
-                      
-                        Console.WriteLine("Enter Test center name: \"name\"");
-                        string name=Console.ReadLine();
-                        using (var unitOfWork = new UnitOfWork(new CovidContext()))
-                        {
-                            var testCenter = new TestCenter(open,close,name);
-
-                            unitOfWork.TestCenters.Add(testCenter);
-                            unitOfWork.Complete();
-                        }
+                    AddTestCenter();
                         break;
+
                     case 'O':
-                        //tilføj Testledelse
-                        Console.WriteLine("Skriv navn på testcenter der ledes:");
-                        name = Console.ReadLine();
-                        Console.WriteLine("Indtast telefon nr. og email: \"tlf email\"");
-                        string[] res = Console.ReadLine().Split(" ");
-                        using (var unitOfWork = new UnitOfWork(new CovidContext()))
-                        {
-                            TestCenter center = unitOfWork.TestCenters.GetAll().Where(s => s.CenterName == name).First();
-                            TestCenterManagement testCenterManagement = null;
-                            if (center != null)
-                            {
-                                testCenterManagement = new TestCenterManagement(center.TestCenterId, res[0], int.Parse(res[1]));
-
-
-                                unitOfWork.TestCenterManagements.Add(testCenterManagement);
-                                unitOfWork.Complete();
-                            }
-                            else
-                            {
-                                Console.WriteLine("Invalid Center name");
-                            }
-                        }
+                        AddManagment();
                         break;
 
                     case 'R':
-                        //tilføj testresultat
-                        Console.WriteLine("Indtast oplysninger om resultat: \"BorgerID centerID resultat(p/n) status");
-                        var tokens=Console.ReadLine().Split(" ");
-                        int borgerid;
-                        int centerid;
-                        Citizen cit=null;
-                        TestCenter cent = null;
-                        if (int.TryParse(tokens[0], out borgerid) && int.TryParse(tokens[1], out centerid))
-                        {
-                            cit = new UnitOfWork(new CovidContext()).Citizens.Find(c => c.ID == borgerid).First();
-                            cent = new UnitOfWork(new CovidContext()).TestCenters.Find(c => c.TestCenterId == centerid).First();
-
-                            if (cit.ID == borgerid && cent.TestCenterId == centerid)
-                            {
-                                bool pos = false;
-                                if (tokens[2] == "p")
-                                    pos = true;
-                                using (var unitOfWork = new UnitOfWork(new CovidContext()))
-                                {
-                                    TestDate test = new TestDate()
-                                    {
-                                        TestCenterID = centerid
-                                        ,
-                                        Citizen_ID = borgerid
-                                        ,
-                                        Date = DateTime.Now
-                                        ,
-                                        Status = tokens[3]
-                                        ,
-                                        Result = pos
-                                    };
-
-                                    unitOfWork.TestDates.Add(test);
-                                    unitOfWork.Complete();
-                                }
-                            }
-                        }
+                        AddTestResult();
                         break;
 
                     case 'L':
-
-                        // tilføj lokation
-                        Console.WriteLine("Indtast Navn på borgers kommune:");
-                        muni = Console.ReadLine();
-                        mun = new UnitOfWork(new CovidContext()).Municipalities.Find(c => c.Name == muni).First();
-                        if (mun.Name == muni)
-                        {
-                            Console.WriteLine("Indtast adressen på den nye lokation");
-                            string address = Console.ReadLine();
-                            using (var unitOfWork = new UnitOfWork(new CovidContext()))
-                            {
-                                if (address != null)
-                                {
-                                    Location location = new Location(address);
-                                    unitOfWork.Locations.Add(location);
-                                    unitOfWork.Complete();
-                                }
-                                else
-                                {
-                                    Console.WriteLine("Indtastet adresse forkert, start kommandoen forfra");
-                                }
-                            }
-                        }
-                        else
-                        {
-                            Console.WriteLine("Forkert kommune, start kommandoen igen");
-                        }
+                        AddLoaction();
                         break;
 
                     default:
