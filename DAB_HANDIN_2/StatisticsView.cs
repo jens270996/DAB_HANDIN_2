@@ -9,23 +9,24 @@ namespace DAB_HANDIN_2
     {
         public StatisticsView()
         {
-
+            AllBoolsFalse();
+            smittede = 0;
         }
 
-        bool finish = false;
-        double smittede = 0;
-        bool kvinder = false;
-        bool mænd = false;
-        bool andre = false;
-        bool et = false;
-        bool elleve = false;
-        bool enogtyve = false;
-        bool enogtredive = false;
-        bool enogfyrre = false;
-        bool enoghalvtreds = false;
-        bool enogtres = false;
-        bool enoghalvfjers = false;
-        bool enogfirs = false;
+        bool finish;
+        double smittede;
+        bool kvinder;
+        bool mænd;
+        bool andre;
+        bool et;
+        bool elleve;
+        bool enogtyve;
+        bool enogtredive;
+        bool enogfyrre;
+        bool enoghalvtreds;
+        bool enogtres;
+        bool enoghalvfjers;
+        bool enogfirs;
 
         public void AllBoolsFalse()
         {
@@ -43,9 +44,29 @@ namespace DAB_HANDIN_2
             enogfirs = false;
         }
 
+        public void SetInfectedStat(ref bool _bool, int minAge, int maxAge, string gender)
+        {
+            using (var unitOfWork = new UnitOfWork(new CovidContext()))
+            {
+                var numberOfInfected = unitOfWork.Citizens.InfectedInterval(minAge, maxAge, gender);
+                _bool = !_bool;
+                if (_bool)
+                {
+                    AllBoolsFalse();
+                    _bool = !_bool;
+                    smittede = numberOfInfected;
+                }
+                else
+                {
+                    AllBoolsFalse();
+                    smittede = 0;
+                }
+            }
+        }
+
+
         public void OpenStatMenu()
         {
-
             do
             {
                 Console.Clear();
@@ -79,243 +100,51 @@ namespace DAB_HANDIN_2
                         break;
 
                     case 'K':
-                        using (var unitOfWork = new UnitOfWork(new CovidContext()))
-                        {
-                            //var numberOfInfected = unitOfWork.Citizens.InfectedInterval(0, 150, "female");
-                            var numberOfInfected = 30;
-                            kvinder = !kvinder;
-                            if (kvinder)
-                            {
-                                AllBoolsFalse();
-                                kvinder = !kvinder; //inverts bool
-                                smittede = numberOfInfected;
-                            }
-                            else
-                            {
-                                AllBoolsFalse();
-                                smittede = 0;
-                            }
-                        }
+                        SetInfectedStat(ref kvinder,0,150, "female");
                         break;
 
                     case 'M':
-                        using (var unitOfWork = new UnitOfWork(new CovidContext()))
-                        {
-                            //var numberOfInfected = unitOfWork.Citizens.InfectedInterval(0, 150, "male");
-                            var numberOfInfected = 55;
-                            mænd = !mænd;
-                            if (mænd)
-                            {
-                                AllBoolsFalse();
-                                mænd = !mænd;
-                                smittede = numberOfInfected;
-                            }
-                            else
-                            {
-                                AllBoolsFalse();
-                                smittede = 0;
-                            }
-                        }
+                       SetInfectedStat(ref mænd,0,150,"male");
                         break;
                         
                     case 'O':
-                        using (var unitOfWork = new UnitOfWork(new CovidContext()))
-                        {
-                            //var numberOfInfected = unitOfWork.Citizens.InfectedInterval(0, 10, "either");
-                            var numberOfInfected = 97;
-                            andre = !andre;
-                            if (andre)
-                            {
-                                AllBoolsFalse();
-                                andre = !andre;
-                                smittede = numberOfInfected;
-                            }
-                            else
-                            {
-                                AllBoolsFalse();
-                                smittede = 0;
-                            }
-                        }
+                        SetInfectedStat(ref andre,0,150,"either");
                         break;
 
                     case 'A':
-                        using (var unitOfWork = new UnitOfWork(new CovidContext()))
-                        {
-                            //var numberOfInfected = unitOfWork.Citizens.InfectedInterval(0, 150, "either");
-                            var numberOfInfected = 22;
-                            et = !et;
-                            if (et)
-                            {
-                                AllBoolsFalse();
-                                et = !et;
-                                smittede = numberOfInfected;
-                            }
-                            else
-                            {
-                                AllBoolsFalse();
-                                smittede = 0;
-                            }
-                        }
+                        SetInfectedStat(ref et, 0,11,"all");
                         break;
 
                     case 'B':
-                        using (var unitOfWork = new UnitOfWork(new CovidContext()))
-                        {
-                            //var numberOfInfected = unitOfWork.Citizens.InfectedInterval(11, 20, "either");
-                            var numberOfInfected = 55;
-                            elleve = !elleve;
-                            if (elleve)
-                            {
-                                AllBoolsFalse();
-                                elleve = !elleve;
-                                smittede = numberOfInfected;
-                            }
-                            else
-                            {
-                                AllBoolsFalse();
-                                smittede = 0;
-                            }
-                        }
+                        SetInfectedStat(ref elleve,11,20,"all");
                         break;
 
                     case 'C':
-                        using (var unitOfWork = new UnitOfWork(new CovidContext()))
-                        {
-                            //var numberOfInfected = unitOfWork.Citizens.InfectedInterval(21, 30, "either");
-                            var numberOfInfected = 876;
-                            enogtyve = !enogtyve;
-                            if (enogtyve)
-                            {
-                                AllBoolsFalse();
-                                enogtyve = !enogtyve;
-                                smittede = numberOfInfected;
-                            }
-                            else
-                            {
-                                AllBoolsFalse();
-                                smittede = 0;
-                            }
-                        }
+                        SetInfectedStat(ref enogtyve,21,30,"all");
                         break;
 
                     case 'D':
-                        using (var unitOfWork = new UnitOfWork(new CovidContext()))
-                        {
-                            //var numberOfInfected = unitOfWork.Citizens.InfectedInterval(31, 40, "either");
-                            var numberOfInfected = 345;
-                            enogtredive = !enogtredive;
-                            if (enogtredive)
-                            {
-                                AllBoolsFalse();
-                                enogtredive = !enogtredive;
-                                smittede = numberOfInfected;
-                            }
-                            else
-                            {
-                                AllBoolsFalse();
-                                smittede = 0;
-                            }
-                        }
+                      SetInfectedStat(ref enogtredive,31,40,"all");
                         break;
 
                     case 'E':
-                        using (var unitOfWork = new UnitOfWork(new CovidContext()))
-                        {
-                            //var numberOfInfected = unitOfWork.Citizens.InfectedInterval(41, 50, "either");
-                            var numberOfInfected = 11;
-                            enogfyrre = !enogfyrre;
-                            if (enogfyrre)
-                            {
-                                AllBoolsFalse();
-                                enogfyrre = !enogfyrre;
-                                smittede = numberOfInfected;
-                            }
-                            else
-                            {
-                                AllBoolsFalse();
-                                smittede = 0;
-                            }
-                        }
+                        SetInfectedStat(ref enogfyrre,41,50,"all");
                         break;
 
                     case 'F':
-                        using (var unitOfWork = new UnitOfWork(new CovidContext()))
-                        {
-                            //var numberOfInfected = unitOfWork.Citizens.InfectedInterval(51, 60, "either");
-                            var numberOfInfected = 76544;
-                            enoghalvtreds = !enoghalvtreds;
-                            if (enoghalvtreds)
-                            {
-                                AllBoolsFalse();
-                                enoghalvtreds = !enoghalvtreds;
-                                smittede = numberOfInfected;
-                            }
-                            else
-                            {
-                                AllBoolsFalse();
-                                smittede = 0;
-                            }
-                        }
+                        SetInfectedStat(ref enoghalvtreds,51,60,"all");
                         break;
 
                     case 'G':
-                        using (var unitOfWork = new UnitOfWork(new CovidContext()))
-                        {
-                            //var numberOfInfected = unitOfWork.Citizens.InfectedInterval(61, 70, "either");
-                            var numberOfInfected = 5555;
-                            enogtres = !enogtres;
-                            if (enogtres)
-                            {
-                                AllBoolsFalse();
-                                enogtres = !enogtres;
-                                smittede = numberOfInfected;
-                            }
-                            else
-                            {
-                                AllBoolsFalse();
-                                smittede = 0;
-                            }
-                        }
+                        SetInfectedStat(ref enogtres,61,70,"all");
                         break;
 
                     case 'H':
-                        using (var unitOfWork = new UnitOfWork(new CovidContext()))
-                        {
-                            //var numberOfInfected = unitOfWork.Citizens.InfectedInterval(71, 80, "either");
-                            var numberOfInfected = 666;
-                            enoghalvfjers = !enoghalvfjers;
-                            if (enoghalvfjers)
-                            {
-                                AllBoolsFalse();
-                                enoghalvfjers = !enoghalvfjers;
-                                smittede = numberOfInfected;
-                            }
-                            else
-                            {
-                                AllBoolsFalse();
-                                smittede = 0;
-                            }
-                        }
+                        SetInfectedStat(ref enoghalvfjers,71,80,"all");
                         break;
 
                     case 'I':
-                        using (var unitOfWork = new UnitOfWork(new CovidContext()))
-                        {
-                            //var numberOfInfected = unitOfWork.Citizens.InfectedInterval(81, 150, "either");
-                            var numberOfInfected = 666;
-                            enogfirs = !enogfirs;
-                            if (enogfirs)
-                            {
-                                AllBoolsFalse();
-                                enogfirs = !enogfirs;
-                                smittede = numberOfInfected;
-                            }
-                            else
-                            {
-                                AllBoolsFalse();
-                                smittede = 0;
-                            }
-                        }
+                        SetInfectedStat(ref enogfirs,80,150,"all");
                         break;
 
                     default:
