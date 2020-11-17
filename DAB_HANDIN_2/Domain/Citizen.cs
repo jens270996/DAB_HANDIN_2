@@ -12,7 +12,7 @@ namespace Covid19_Tracking.Domain
             CitizenLocations = new HashSet<CitizenLocation>();
         }
 
-        public Citizen(int id, string forNavn, string efterNavn, string SSN1, int alder, string køn)
+        public Citizen(int id, string forNavn, string efterNavn, string SSN1, int alder, string køn, int municipality)
         {
             ID = id;
             FirstName = forNavn;
@@ -22,8 +22,9 @@ namespace Covid19_Tracking.Domain
             Sex = køn;
             TestDates = new HashSet<TestDate>();
             CitizenLocations = new HashSet<CitizenLocation>();
+            MunicipalityID = municipality;
         }
-        public Citizen( string forNavn, string efterNavn, string SSN1, int alder, string køn)
+        public Citizen( string forNavn, string efterNavn, string SSN1, int alder, string køn, int municipality)
         {
            
             FirstName = forNavn;
@@ -33,6 +34,7 @@ namespace Covid19_Tracking.Domain
             Sex = køn;
             TestDates = new HashSet<TestDate>();
             CitizenLocations = new HashSet<CitizenLocation>();
+            MunicipalityID = municipality;
         }
 
         public string SSN {get; set;}
@@ -42,6 +44,8 @@ namespace Covid19_Tracking.Domain
         public string Sex { get; set; }
 
         public int ID { get; set; }
+
+        public int MunicipalityID { get; set; }
         public virtual Municipality Municipality { get; set; }
 
         public virtual ICollection<CitizenLocation> CitizenLocations { get; set; }
