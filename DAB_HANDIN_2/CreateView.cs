@@ -44,7 +44,36 @@ namespace DAB_HANDIN_2
                         break;
 
                     case 'B':
-                        // tilføj ny borger
+                        Console.WriteLine("Indtast Navn på borgers kommune:");
+                        var muni = Console.ReadLine();
+                        var mun = new UnitOfWork(new CovidContext()).Municipalities.Find(c => c.Name == muni).First();
+                        if(mun.Name==muni)
+                        {
+                            Console.WriteLine("Indtast Navn, ssn, alder, køn: \"Fornavn efternavn ssn alder køn\"");
+                            var tokens = Console.ReadLine().Split(" ");
+                            int val;
+                            if (tokens.Length == 5 && int.TryParse(tokens[3], out val))
+                            {
+                                using (var unitOfWork = new UnitOfWork(new CovidContext()))
+                                {
+                                    var cit = new Citizen(mun.ID, tokens[0], tokens[1], tokens[2], val, tokens[4]);
+
+                                    unitOfWork.Citizens.Add(cit);
+                                    unitOfWork.Complete();
+                                }
+                            }
+                            else
+                            {
+                                Console.WriteLine("Ugyldig data.");
+                            }
+
+                            // tilføj ny borger
+                            
+                        }
+                        else
+                        {
+                            Console.WriteLine("Ugyldigt kommune-navn.");
+                        }
 
                         break;
 
@@ -98,6 +127,7 @@ namespace DAB_HANDIN_2
 
                     case 'R':
                         //tilføj testresultat
+                        Console.WriteLine("")
                         break;
 
                     case 'L':
